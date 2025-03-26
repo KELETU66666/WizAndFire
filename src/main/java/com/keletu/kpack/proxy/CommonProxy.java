@@ -8,7 +8,6 @@ import com.keletu.kpack.item.ItemArmorDragonSage;
 import net.minecraft.block.Block;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -16,8 +15,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import java.awt.*;
 
 public class CommonProxy {
     //Mage
@@ -131,8 +128,5 @@ public class CommonProxy {
     @SideOnly(Side.CLIENT)
     public void modelRegistryEvent(ModelRegistryEvent event) {
 
-    }
-
-    public void spawnParticle(EnumParticleTypes type, double x, double y, double z, Color color, double velX, double velY, double velZ) {
     }
 }

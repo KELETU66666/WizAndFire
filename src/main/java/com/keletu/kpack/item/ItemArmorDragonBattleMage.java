@@ -26,7 +26,7 @@ public class ItemArmorDragonBattleMage extends ItemArmor {
         this.slot = slot;
         this.type = type;
         setRegistryName(KPack.MOD_ID, name);
-        setTranslationKey(name);
+        setTranslationKey(KPack.MOD_ID + "." + name);
         setCreativeTab(CreativeTabs.COMBAT);
     }
 

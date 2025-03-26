@@ -1,16 +1,11 @@
 package com.keletu.kpack.proxy;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-
-import java.awt.*;
 
 public class ClientProxy extends CommonProxy {
     @Override
@@ -68,12 +63,5 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(ChestLightningBattleMage, 0, new ModelResourceLocation(ChestLightningBattleMage.getRegistryName(), "inventory"));
         ModelLoader.setCustomModelResourceLocation(LegsLightningBattleMage, 0, new ModelResourceLocation(LegsLightningBattleMage.getRegistryName(), "inventory"));
         ModelLoader.setCustomModelResourceLocation(BootsLightningBattleMage, 0, new ModelResourceLocation(BootsLightningBattleMage.getRegistryName(), "inventory"));
-    }
-
-    @Override
-    public void spawnParticle(EnumParticleTypes type, double x, double y, double z, Color color, double velX, double velY, double velZ) {
-        Particle particle = Minecraft.getMinecraft().effectRenderer.spawnEffectParticle(type.getParticleID(), x, y, z, velX, velY, velZ);
-        float randBrightness = 0.5F + (float) Math.random();
-        particle.setRBGColorF((color.getRed() / 255.0F) * randBrightness, (color.getGreen() / 255.0F) * randBrightness, (color.getBlue() / 255.0F) * randBrightness);
     }
 }
