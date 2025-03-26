@@ -1,0 +1,19 @@
+[
+  {
+    "modid": "kgears",
+    "name": "Keletu's Pack Gears",
+    "description": "a mod added something related to keletu's pack",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "keletu", "Carver"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": [
+    ]
+  }
+]
