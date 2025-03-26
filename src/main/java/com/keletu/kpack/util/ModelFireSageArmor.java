@@ -1,43 +1,50 @@
-package com.keletu.kpack.util;
+package com.keletu.kpack.util;// Made with Blockbench 4.12.3
+// Exported for Minecraft version 1.7 - 1.12
+// Paste this class into your mod and generate all required imports
+
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 
-public class ModelFireMageArmor extends ModelBiped {
-	private final ModelRenderer cowl;
-	private final ModelRenderer head4_r1;
-	private final ModelRenderer head4_r2;
-	private final ModelRenderer head3_r1;
+public class ModelFireSageArmor extends ModelBiped {
+	private final ModelRenderer helmet;
+	private final ModelRenderer head8_r1;
+	private final ModelRenderer head7_r1;
+	private final ModelRenderer head6_r1;
+	private final ModelRenderer head7_r2;
+	private final ModelRenderer head7_r3;
+	private final ModelRenderer head6_r2;
 	private final ModelRenderer head5_r1;
-	private final ModelRenderer head4_r3;
-	private final ModelRenderer head4_r4;
-	private final ModelRenderer head3_r2;
-	private final ModelRenderer head2_r1;
-	private final ModelRenderer head5_r2;
-	private final ModelRenderer head4_r5;
-	private final ModelRenderer head3_r3;
-	private final ModelRenderer head4_r6;
-	private final ModelRenderer head2_r2;
+	private final ModelRenderer head4_r1;
 	private final ModelRenderer armr;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;
 	private final ModelRenderer cube_r3;
-	private final ModelRenderer arml;
 	private final ModelRenderer cube_r4;
+	private final ModelRenderer arml;
 	private final ModelRenderer cube_r5;
 	private final ModelRenderer cube_r6;
+	private final ModelRenderer cube_r7;
+	private final ModelRenderer cube_r8;
 	private final ModelRenderer torso;
+	private final ModelRenderer ChestClothR_r1;
+	private final ModelRenderer LegClothR_r1;
+	private final ModelRenderer Cloak1_r1;
+	private final ModelRenderer Cloak2_r1;
 	private final ModelRenderer legl;
-	private final ModelRenderer Scroll4_r1;
 	private final ModelRenderer ll4_r1;
+	private final ModelRenderer chain_r1;
+	private final ModelRenderer ll5_r1;
+	private final ModelRenderer ll4_r2;
 	private final ModelRenderer ll3_r1;
 	private final ModelRenderer ll3_r2;
 	private final ModelRenderer ll2_r1;
 	private final ModelRenderer ll2_r2;
 	private final ModelRenderer ll1_r1;
 	private final ModelRenderer legr;
-	private final ModelRenderer Book_r1;
+	private final ModelRenderer ll6_r1;
+	private final ModelRenderer ll5_r2;
 	private final ModelRenderer lr6_r1;
 	private final ModelRenderer lr5_r1;
 	private final ModelRenderer lr4_r1;
@@ -47,94 +54,63 @@ public class ModelFireMageArmor extends ModelBiped {
 	private final ModelRenderer bootl;
 	private final ModelRenderer bootr;
 
-	public ModelFireMageArmor(boolean legs) {
+	public ModelFireSageArmor(boolean legs) {
 		textureWidth = 128;
 		textureHeight = 64;
 
-		cowl = new ModelRenderer(this);
-		cowl.setRotationPoint(0.0F, -2.0F, -6.5F);
-		cowl.cubeList.add(new ModelBox(cowl, 0, 0, -3.5F, -6.9F, 1.5F, 7, 2, 2, 0.0F, false));
-		cowl.cubeList.add(new ModelBox(cowl, 0, 8, -3.5F, -5.5F, -1.5F, 7, 3, 4, 0.0F, false));
-		cowl.cubeList.add(new ModelBox(cowl, 22, 10, -4.5F, -5.5F, 2.0F, 9, 7, 1, 0.0F, false));
+		helmet = new ModelRenderer(this);
+		helmet.setRotationPoint(0.0F, -2.0F, -6.5F);
+		helmet.cubeList.add(new ModelBox(helmet, 92, 37, -4.5F, -6.5F, 2.0F, 9, 9, 9, 0.0F, false));
+		helmet.cubeList.add(new ModelBox(helmet, 0, 8, -3.5F, -5.5F, -1.5F, 7, 3, 4, 0.0F, false));
+		helmet.cubeList.add(new ModelBox(helmet, 64, 4, 4.6F, 1.0F, 12.4F, 1, 3, 1, 0.0F, false));
+
+		head8_r1 = new ModelRenderer(this);
+		head8_r1.setRotationPoint(-4.4F, 0.2F, 11.2F);
+		helmet.addChild(head8_r1);
+		setRotationAngle(head8_r1, -0.3491F, -0.3054F, 0.0F);
+		head8_r1.cubeList.add(new ModelBox(head8_r1, 0, 0, -1.0F, -1.0F, -2.5F, 2, 2, 6, 0.0F, true));
+
+		head7_r1 = new ModelRenderer(this);
+		head7_r1.setRotationPoint(-6.1F, -6.8F, 14.2F);
+		helmet.addChild(head7_r1);
+		setRotationAngle(head7_r1, 0.294F, -0.3736F, -0.1239F);
+		head7_r1.cubeList.add(new ModelBox(head7_r1, 16, 1, -0.5F, -1.5F, -2.5F, 2, 2, 5, 0.0F, true));
+
+		head6_r1 = new ModelRenderer(this);
+		head6_r1.setRotationPoint(-4.0F, -5.6F, 10.0F);
+		helmet.addChild(head6_r1);
+		setRotationAngle(head6_r1, 0.3289F, -0.3736F, -0.1239F);
+		head6_r1.cubeList.add(new ModelBox(head6_r1, 30, 0, -1.5F, -1.5F, -2.5F, 3, 3, 5, 0.0F, true));
+
+		head7_r2 = new ModelRenderer(this);
+		head7_r2.setRotationPoint(4.4F, 0.2F, 11.2F);
+		helmet.addChild(head7_r2);
+		setRotationAngle(head7_r2, -0.3491F, 0.3054F, 0.0F);
+		head7_r2.cubeList.add(new ModelBox(head7_r2, 46, 0, -1.0F, -1.0F, -2.5F, 2, 2, 6, 0.0F, false));
+
+		head7_r3 = new ModelRenderer(this);
+		head7_r3.setRotationPoint(0.0F, -7.3F, 14.9F);
+		helmet.addChild(head7_r3);
+		setRotationAngle(head7_r3, 0.2182F, 0.0F, 0.0F);
+		head7_r3.cubeList.add(new ModelBox(head7_r3, 56, 0, -7.5F, -1.5F, -0.5F, 15, 3, 1, 0.0F, false));
+
+		head6_r2 = new ModelRenderer(this);
+		head6_r2.setRotationPoint(6.1F, -6.8F, 14.2F);
+		helmet.addChild(head6_r2);
+		setRotationAngle(head6_r2, 0.294F, 0.3736F, 0.1239F);
+		head6_r2.cubeList.add(new ModelBox(head6_r2, 22, 8, -1.5F, -1.5F, -2.5F, 2, 2, 5, 0.0F, false));
+
+		head5_r1 = new ModelRenderer(this);
+		head5_r1.setRotationPoint(4.0F, -5.6F, 10.0F);
+		helmet.addChild(head5_r1);
+		setRotationAngle(head5_r1, 0.3289F, 0.3736F, 0.1239F);
+		head5_r1.cubeList.add(new ModelBox(head5_r1, 30, 0, -1.5F, -1.5F, -2.5F, 3, 3, 5, 0.0F, false));
 
 		head4_r1 = new ModelRenderer(this);
 		head4_r1.setRotationPoint(0.0F, 0.0F, 0.0F);
-		cowl.addChild(head4_r1);
+		helmet.addChild(head4_r1);
 		setRotationAngle(head4_r1, -0.1309F, 0.0F, 0.0F);
 		head4_r1.cubeList.add(new ModelBox(head4_r1, 42, 10, -3.5F, -1.5F, -1.5F, 7, 3, 4, 0.0F, false));
-
-		head4_r2 = new ModelRenderer(this);
-		head4_r2.setRotationPoint(0.0F, -1.0F, 9.2F);
-		cowl.addChild(head4_r2);
-		setRotationAngle(head4_r2, -1.0036F, 0.0F, 0.0F);
-		head4_r2.cubeList.add(new ModelBox(head4_r2, 0, 4, -4.48F, -1.0F, 3.0F, 9, 3, 1, 0.0F, false));
-
-		head3_r1 = new ModelRenderer(this);
-		head3_r1.setRotationPoint(0.0F, -4.9F, 7.6F);
-		cowl.addChild(head3_r1);
-		setRotationAngle(head3_r1, 0.0873F, 0.0F, 0.0F);
-		head3_r1.cubeList.add(new ModelBox(head3_r1, 90, 0, -4.5F, -1.0F, 3.0F, 9, 8, 1, 0.0F, false));
-
-		head5_r1 = new ModelRenderer(this);
-		head5_r1.setRotationPoint(-2.6F, 5.6971F, 7.2691F);
-		cowl.addChild(head5_r1);
-		setRotationAngle(head5_r1, -0.0873F, 0.0F, -0.6109F);
-		head5_r1.cubeList.add(new ModelBox(head5_r1, 64, 0, -0.5F, -4.0F, -4.0F, 1, 2, 6, 0.0F, true));
-
-		head4_r3 = new ModelRenderer(this);
-		head4_r3.setRotationPoint(-4.4F, -2.4029F, 7.2691F);
-		cowl.addChild(head4_r3);
-		setRotationAngle(head4_r3, -0.0436F, 0.0F, 0.0873F);
-		head4_r3.cubeList.add(new ModelBox(head4_r3, 72, 0, -0.5F, -4.0F, -4.0F, 1, 9, 8, 0.0F, true));
-
-		head4_r4 = new ModelRenderer(this);
-		head4_r4.setRotationPoint(2.6F, 5.6971F, 7.2691F);
-		cowl.addChild(head4_r4);
-		setRotationAngle(head4_r4, -0.0873F, 0.0F, 0.6109F);
-		head4_r4.cubeList.add(new ModelBox(head4_r4, 64, 0, -0.5F, -4.0F, -4.0F, 1, 2, 6, 0.0F, false));
-
-		head3_r2 = new ModelRenderer(this);
-		head3_r2.setRotationPoint(4.4F, -2.4029F, 7.2691F);
-		cowl.addChild(head3_r2);
-		setRotationAngle(head3_r2, -0.0436F, 0.0F, -0.0873F);
-		head3_r2.cubeList.add(new ModelBox(head3_r2, 72, 0, -0.5F, -4.0F, -4.0F, 1, 9, 8, 0.0F, false));
-
-		head2_r1 = new ModelRenderer(this);
-		head2_r1.setRotationPoint(0.0F, -5.5F, 7.4F);
-		cowl.addChild(head2_r1);
-		setRotationAngle(head2_r1, -0.0436F, 0.0F, 0.0F);
-		head2_r1.cubeList.add(new ModelBox(head2_r1, 38, 0, -4.5F, -1.0F, -4.0F, 9, 2, 8, 0.0F, false));
-
-		head5_r2 = new ModelRenderer(this);
-		head5_r2.setRotationPoint(-3.3893F, 2.0516F, 3.0F);
-		cowl.addChild(head5_r2);
-		setRotationAngle(head5_r2, 0.0436F, 0.0F, -0.7854F);
-		head5_r2.cubeList.add(new ModelBox(head5_r2, 38, 0, -1.0F, -2.5F, -1.0F, 2, 4, 2, 0.0F, true));
-
-		head4_r5 = new ModelRenderer(this);
-		head4_r5.setRotationPoint(-3.8893F, -2.7484F, 2.7F);
-		cowl.addChild(head4_r5);
-		setRotationAngle(head4_r5, 0.0436F, 0.0F, 0.0F);
-		head4_r5.cubeList.add(new ModelBox(head4_r5, 30, 0, -2.0F, -1.0F, -1.0F, 2, 5, 2, 0.0F, true));
-		head4_r5.cubeList.add(new ModelBox(head4_r5, 30, 0, 7.7786F, -1.0F, -1.0F, 2, 5, 2, 0.0F, false));
-
-		head3_r3 = new ModelRenderer(this);
-		head3_r3.setRotationPoint(-3.8893F, -4.7484F, 2.6F);
-		cowl.addChild(head3_r3);
-		setRotationAngle(head3_r3, 0.0436F, 0.0F, -0.9163F);
-		head3_r3.cubeList.add(new ModelBox(head3_r3, 18, 0, -2.0F, -1.0F, -1.0F, 4, 2, 2, 0.0F, true));
-
-		head4_r6 = new ModelRenderer(this);
-		head4_r6.setRotationPoint(3.3893F, 2.0516F, 3.0F);
-		cowl.addChild(head4_r6);
-		setRotationAngle(head4_r6, 0.0436F, 0.0F, 0.7854F);
-		head4_r6.cubeList.add(new ModelBox(head4_r6, 38, 0, -1.0F, -2.5F, -1.0F, 2, 4, 2, 0.0F, false));
-
-		head2_r2 = new ModelRenderer(this);
-		head2_r2.setRotationPoint(3.8893F, -4.7484F, 2.6F);
-		cowl.addChild(head2_r2);
-		setRotationAngle(head2_r2, 0.0436F, 0.0F, 0.9163F);
-		head2_r2.cubeList.add(new ModelBox(head2_r2, 18, 0, -2.0F, -1.0F, -1.0F, 4, 2, 2, 0.0F, false));
 
 		armr = new ModelRenderer(this);
 		armr.setRotationPoint(5F, 22F, 0.0F);
@@ -159,28 +135,40 @@ public class ModelFireMageArmor extends ModelBiped {
 		setRotationAngle(cube_r3, -0.5672F, -0.0873F, -0.7418F);
 		cube_r3.cubeList.add(new ModelBox(cube_r3, 32, 18, -0.5F, -2.0F, -0.5F, 1, 4, 1, 0.0F, false));
 
+		cube_r4 = new ModelRenderer(this);
+		cube_r4.setRotationPoint(-7.6F, -25.3F, 0.5F);
+		armr.addChild(cube_r4);
+		setRotationAngle(cube_r4, -0.5087F, -0.1298F, -0.228F);
+		cube_r4.cubeList.add(new ModelBox(cube_r4, 32, 18, -0.5F, -2.0F, -0.5F, 1, 4, 1, 0.0F, false));
+
 		arml = new ModelRenderer(this);
 		arml.setRotationPoint(-5F, 22F, 0.0F);
 		arml.cubeList.add(new ModelBox(arml, 0, 15, 3.5F, -24.5F, -2.5F, 5, 12, 5, 0.0F, true));
 		arml.cubeList.add(new ModelBox(arml, 20, 18, 3.5F, -17.5F, 2.5F, 5, 5, 1, 0.0F, true));
 
-		cube_r4 = new ModelRenderer(this);
-		cube_r4.setRotationPoint(9.0F, -19.5F, 2.0F);
-		arml.addChild(cube_r4);
-		setRotationAngle(cube_r4, -0.5672F, 0.0873F, 0.7418F);
-		cube_r4.cubeList.add(new ModelBox(cube_r4, 32, 18, -0.5F, -2.0F, -0.5F, 1, 4, 1, 0.0F, true));
-
 		cube_r5 = new ModelRenderer(this);
-		cube_r5.setRotationPoint(9.0F, -21.5F, 2.0F);
+		cube_r5.setRotationPoint(9.0F, -19.5F, 2.0F);
 		arml.addChild(cube_r5);
 		setRotationAngle(cube_r5, -0.5672F, 0.0873F, 0.7418F);
 		cube_r5.cubeList.add(new ModelBox(cube_r5, 32, 18, -0.5F, -2.0F, -0.5F, 1, 4, 1, 0.0F, true));
 
 		cube_r6 = new ModelRenderer(this);
-		cube_r6.setRotationPoint(9.0F, -23.5F, 2.0F);
+		cube_r6.setRotationPoint(9.0F, -21.5F, 2.0F);
 		arml.addChild(cube_r6);
 		setRotationAngle(cube_r6, -0.5672F, 0.0873F, 0.7418F);
 		cube_r6.cubeList.add(new ModelBox(cube_r6, 32, 18, -0.5F, -2.0F, -0.5F, 1, 4, 1, 0.0F, true));
+
+		cube_r7 = new ModelRenderer(this);
+		cube_r7.setRotationPoint(7.6F, -25.3F, 0.5F);
+		arml.addChild(cube_r7);
+		setRotationAngle(cube_r7, -0.5087F, 0.1298F, 0.228F);
+		cube_r7.cubeList.add(new ModelBox(cube_r7, 32, 18, -0.5F, -2.0F, -0.5F, 1, 4, 1, 0.0F, true));
+
+		cube_r8 = new ModelRenderer(this);
+		cube_r8.setRotationPoint(9.0F, -23.5F, 2.0F);
+		arml.addChild(cube_r8);
+		setRotationAngle(cube_r8, -0.5672F, 0.0873F, 0.7418F);
+		cube_r8.cubeList.add(new ModelBox(cube_r8, 32, 18, -0.5F, -2.0F, -0.5F, 1, 4, 1, 0.0F, true));
 
 		torso = new ModelRenderer(this);
 		torso.setRotationPoint(0.0F, 24.0F, 0.0F);
@@ -190,21 +178,59 @@ public class ModelFireMageArmor extends ModelBiped {
 		torso.cubeList.add(new ModelBox(torso, 41, 47, 3.1F, -24.1F, -2.5F, 1, 12, 5, 0.0F, true));
 		torso.cubeList.add(new ModelBox(torso, 41, 47, -4.1F, -24.1F, -2.5F, 1, 12, 5, 0.0F, true));
 
-		legl = new ModelRenderer(this);
-		legl.setRotationPoint(-1.9F, 4F, -2.7F);
-		
+		ChestClothR_r1 = new ModelRenderer(this);
+		ChestClothR_r1.setRotationPoint(-2.6F, -18.3F, -3.5F);
+		torso.addChild(ChestClothR_r1);
+		setRotationAngle(ChestClothR_r1, -0.0873F, 0.0F, 0.0F);
+		ChestClothR_r1.cubeList.add(new ModelBox(ChestClothR_r1, 75, 45, -1.5F, -4.5F, -0.5F, 2, 9, 1, 0.0F, false));
+		ChestClothR_r1.cubeList.add(new ModelBox(ChestClothR_r1, 75, 45, 4.7F, -4.5F, -0.5F, 2, 9, 1, 0.0F, true));
 
-		Scroll4_r1 = new ModelRenderer(this);
-		Scroll4_r1.setRotationPoint(9.4F, 11.0F, 3.2F);
-		legl.addChild(Scroll4_r1);
-		setRotationAngle(Scroll4_r1, 0.0436F, 0.0F, 0.0F);
-		Scroll4_r1.cubeList.add(new ModelBox(Scroll4_r1, 106, 53, -5.0F, -14.0F, -4.0F, 3, 3, 8, 0.0F, true));
+		LegClothR_r1 = new ModelRenderer(this);
+		LegClothR_r1.setRotationPoint(-2.6F, -9.8427F, -4.0653F);
+		torso.addChild(LegClothR_r1);
+		setRotationAngle(LegClothR_r1, -0.0436F, 0.0F, 0.0F);
+		LegClothR_r1.cubeList.add(new ModelBox(LegClothR_r1, 75, 55, -1.5F, -4.0F, -0.5F, 2, 8, 1, 0.0F, false));
+		LegClothR_r1.cubeList.add(new ModelBox(LegClothR_r1, 75, 55, 4.7F, -4.0F, -0.5F, 2, 8, 1, 0.0F, true));
+
+		Cloak1_r1 = new ModelRenderer(this);
+		Cloak1_r1.setRotationPoint(0.0F, -18.0F, 3.9F);
+		torso.addChild(Cloak1_r1);
+		setRotationAngle(Cloak1_r1, 0.1309F, 0.0F, 0.0F);
+		Cloak1_r1.cubeList.add(new ModelBox(Cloak1_r1, 55, 46, -4.5F, -6.0F, -0.5F, 9, 12, 1, 0.0F, false));
+
+		Cloak2_r1 = new ModelRenderer(this);
+		Cloak2_r1.setRotationPoint(0.0F, -10.0602F, 5.0338F);
+		torso.addChild(Cloak2_r1);
+		setRotationAngle(Cloak2_r1, 0.1745F, 0.0F, 0.0F);
+		Cloak2_r1.cubeList.add(new ModelBox(Cloak2_r1, 55, 59, -4.5F, -2.0F, -0.5F, 9, 4, 1, 0.0F, false));
+
+		legl = new ModelRenderer(this);
+		legl.setRotationPoint(-1.9F, 4.0F, -2.7F);
+		
 
 		ll4_r1 = new ModelRenderer(this);
 		ll4_r1.setRotationPoint(3.5F, 19.3F, 1.2F);
 		legl.addChild(ll4_r1);
 		setRotationAngle(ll4_r1, 0.0F, 0.0F, -0.1309F);
 		ll4_r1.cubeList.add(new ModelBox(ll4_r1, 62, 25, 2.5F, -15.5F, -1.0F, 1, 3, 5, 0.0F, false));
+
+		chain_r1 = new ModelRenderer(this);
+		chain_r1.setRotationPoint(5.1F, -2.9F, 3.3F);
+		legl.addChild(chain_r1);
+		setRotationAngle(chain_r1, 0.0F, 0.0F, 0.3927F);
+		chain_r1.cubeList.add(new ModelBox(chain_r1, 44, 35, -2.0F, -0.5F, -3.0F, 4, 1, 5, 0.0F, false));
+
+		ll5_r1 = new ModelRenderer(this);
+		ll5_r1.setRotationPoint(5.9F, -1.9F, 3.5F);
+		legl.addChild(ll5_r1);
+		setRotationAngle(ll5_r1, 0.0436F, -0.0873F, -0.0873F);
+		ll5_r1.cubeList.add(new ModelBox(ll5_r1, 74, 39, -1.0F, -1.0F, -2.0F, 3, 3, 3, 0.0F, false));
+
+		ll4_r2 = new ModelRenderer(this);
+		ll4_r2.setRotationPoint(6.4F, -1.4F, 3.0F);
+		legl.addChild(ll4_r2);
+		setRotationAngle(ll4_r2, 0.0436F, -0.0873F, -0.0873F);
+		ll4_r2.cubeList.add(new ModelBox(ll4_r2, 58, 37, -2.0F, -2.0F, -2.0F, 4, 4, 4, 0.0F, false));
 
 		ll3_r1 = new ModelRenderer(this);
 		ll3_r1.setRotationPoint(2.0F, 17.2F, 1.2F);
@@ -237,14 +263,20 @@ public class ModelFireMageArmor extends ModelBiped {
 		ll1_r1.cubeList.add(new ModelBox(ll1_r1, 42, 17, 0.0F, -4.5F, -0.5F, 4, 9, 1, 0.0F, false));
 
 		legr = new ModelRenderer(this);
-		legr.setRotationPoint(1.9F, 4F, -2.7F);
+		legr.setRotationPoint(1.9F, 4.0F, -2.7F);
 		
 
-		Book_r1 = new ModelRenderer(this);
-		Book_r1.setRotationPoint(-5.6F, -1.0F, 2.2F);
-		legr.addChild(Book_r1);
-		setRotationAngle(Book_r1, -0.0873F, 0.0F, 0.0F);
-		Book_r1.cubeList.add(new ModelBox(Book_r1, 110, 41, -1.0F, -2.5F, -3.5F, 2, 5, 7, 0.0F, false));
+		ll6_r1 = new ModelRenderer(this);
+		ll6_r1.setRotationPoint(-5.6F, 0.6F, 0.4F);
+		legr.addChild(ll6_r1);
+		setRotationAngle(ll6_r1, -0.1476F, -0.3283F, 0.1352F);
+		ll6_r1.cubeList.add(new ModelBox(ll6_r1, 86, 36, -1.0F, -2.5F, -2.0F, 2, 5, 4, 0.0F, false));
+
+		ll5_r2 = new ModelRenderer(this);
+		ll5_r2.setRotationPoint(-5.6F, -1.6F, 3.0F);
+		legr.addChild(ll5_r2);
+		setRotationAngle(ll5_r2, 0.0F, 0.0F, 0.0873F);
+		ll5_r2.cubeList.add(new ModelBox(ll5_r2, 86, 36, -1.0F, -2.5F, -2.0F, 2, 5, 4, 0.0F, false));
 
 		lr6_r1 = new ModelRenderer(this);
 		lr6_r1.setRotationPoint(-3.5F, 19.3F, 1.2F);
@@ -292,7 +324,7 @@ public class ModelFireMageArmor extends ModelBiped {
 
 		bipedHeadwear.cubeList.clear();
 		bipedHead.cubeList.clear();
-		bipedHead.addChild(cowl);
+		bipedHead.addChild(helmet);
 
 		bipedLeftArm.cubeList.clear();
 		bipedLeftArm.addChild(arml);

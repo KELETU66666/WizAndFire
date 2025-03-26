@@ -42,6 +42,32 @@ public class ClientProxy extends CommonProxy {
         ModelLoader.setCustomModelResourceLocation(ChestLightningMage, 0, new ModelResourceLocation(ChestLightningMage.getRegistryName(), "inventory"));
         ModelLoader.setCustomModelResourceLocation(LegsLightningMage, 0, new ModelResourceLocation(LegsLightningMage.getRegistryName(), "inventory"));
         ModelLoader.setCustomModelResourceLocation(BootsLightningMage, 0, new ModelResourceLocation(BootsLightningMage.getRegistryName(), "inventory"));
+
+        ModelLoader.setCustomModelResourceLocation(HelmIceSage, 0, new ModelResourceLocation(HelmIceSage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ChestIceSage, 0, new ModelResourceLocation(ChestIceSage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(LegsIceSage, 0, new ModelResourceLocation(LegsIceSage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(BootsIceSage, 0, new ModelResourceLocation(BootsIceSage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(HelmFireSage, 0, new ModelResourceLocation(HelmFireSage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ChestFireSage, 0, new ModelResourceLocation(ChestFireSage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(LegsFireSage, 0, new ModelResourceLocation(LegsFireSage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(BootsFireSage, 0, new ModelResourceLocation(BootsFireSage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(HelmLightningSage, 0, new ModelResourceLocation(HelmLightningSage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ChestLightningSage, 0, new ModelResourceLocation(ChestLightningSage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(LegsLightningSage, 0, new ModelResourceLocation(LegsLightningSage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(BootsLightningSage, 0, new ModelResourceLocation(BootsLightningSage.getRegistryName(), "inventory"));
+
+        ModelLoader.setCustomModelResourceLocation(HelmIceBattleMage, 0, new ModelResourceLocation(HelmIceBattleMage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ChestIceBattleMage, 0, new ModelResourceLocation(ChestIceBattleMage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(LegsIceBattleMage, 0, new ModelResourceLocation(LegsIceBattleMage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(BootsIceBattleMage, 0, new ModelResourceLocation(BootsIceBattleMage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(HelmFireBattleMage, 0, new ModelResourceLocation(HelmFireBattleMage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ChestFireBattleMage, 0, new ModelResourceLocation(ChestFireBattleMage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(LegsFireBattleMage, 0, new ModelResourceLocation(LegsFireBattleMage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(BootsFireBattleMage, 0, new ModelResourceLocation(BootsFireBattleMage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(HelmLightningBattleMage, 0, new ModelResourceLocation(HelmLightningBattleMage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(ChestLightningBattleMage, 0, new ModelResourceLocation(ChestLightningBattleMage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(LegsLightningBattleMage, 0, new ModelResourceLocation(LegsLightningBattleMage.getRegistryName(), "inventory"));
+        ModelLoader.setCustomModelResourceLocation(BootsLightningBattleMage, 0, new ModelResourceLocation(BootsLightningBattleMage.getRegistryName(), "inventory"));
     }
 
     @Override
