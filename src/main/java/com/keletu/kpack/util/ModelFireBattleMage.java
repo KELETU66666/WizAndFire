@@ -1,7 +1,4 @@
-package com.keletu.kpack.util;// Made with Blockbench 4.12.3
-// Exported for Minecraft version 1.7 - 1.12
-// Paste this class into your mod and generate all required imports
-
+package com.keletu.kpack.util;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelBox;

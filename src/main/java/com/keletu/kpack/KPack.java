@@ -1,11 +1,19 @@
 package com.keletu.kpack;
 
+import com.github.alexthe666.iceandfire.IceAndFire;
+import com.keletu.kpack.item.IScaleArmor;
 import com.keletu.kpack.proxy.CommonProxy;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -27,13 +35,21 @@ import java.io.File;
         modid = KPack.MOD_ID,
         name = KPack.MOD_NAME,
         version = KPack.VERSION,
-        dependencies = "after:iceandfire"
+        dependencies = "required-after:iceandfire;required-after:ebwizardry"
 )
 public class KPack {
 
     public static final String MOD_ID = "kpack";
     public static final String MOD_NAME = "Keletu's Pack Gears";
     public static final String VERSION = "1.3.0";
+
+    public static CreativeTabs tabKPG = new CreativeTabs("tabKeletuPackGears") {
+        @SideOnly(Side.CLIENT)
+        public ItemStack createIcon() {
+            return new ItemStack(CommonProxy.HelmFireBattleMage);
+        }
+    };
+
 
     @SidedProxy(clientSide = "com.keletu.kpack.proxy.ClientProxy", serverSide = "com.keletu.kpack.proxy.CommonProxy")
     public static CommonProxy proxy;
@@ -105,6 +121,29 @@ public class KPack {
 
         @SubscribeEvent
         public static void entities(RegistryEvent.Register<EntityEntry> event) {
+        }
+
+        @SubscribeEvent
+        public static void onLivingHurt(LivingHurtEvent event) {
+            DamageSource source = event.getSource();
+            EntityLivingBase victim = event.getEntityLiving();
+
+            if (source == IceAndFire.dragonFire || source == IceAndFire.dragonIce || source == IceAndFire.dragonLightning) {
+                float multi = 1;
+                if (victim.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() instanceof IScaleArmor) {
+                    multi -= 0.1;
+                }
+                if (victim.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() instanceof IScaleArmor) {
+                    multi -= 0.3;
+                }
+                if (victim.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() instanceof IScaleArmor) {
+                    multi -= 0.2;
+                }
+                if (victim.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() instanceof IScaleArmor) {
+                    multi -= 0.1;
+                }
+                event.setAmount(event.getAmount() * multi);
+            }
         }
     }
 }

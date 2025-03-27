@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "kpack:items/battlemage_lightning_leggings"
+  }
+}

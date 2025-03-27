@@ -8,12 +8,15 @@
     "url": "",
     "updateUrl": "",
     "authorList": [
-      "keletu", "Carver"
+      "keletu",
+      "Carver"
     ],
     "credits": "",
     "logoFile": "",
     "screenshots": [],
     "dependencies": [
+      "iceandfire",
+      "ebwizardry"
     ]
   }
 ]

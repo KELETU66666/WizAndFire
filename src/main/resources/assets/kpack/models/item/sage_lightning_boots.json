@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "kpack:items/sage_lightning_boots"
+  }
+}

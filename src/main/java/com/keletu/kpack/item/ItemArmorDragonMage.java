@@ -1,33 +1,42 @@
 package com.keletu.kpack.item;
 
+import com.google.common.collect.Multimap;
 import com.keletu.kpack.KPack;
+import com.keletu.kpack.proxy.CommonProxy;
 import com.keletu.kpack.util.ModelFireMageArmor;
 import com.keletu.kpack.util.ModelIceMageArmor;
 import com.keletu.kpack.util.ModelLightningMageArmor;
+import electroblob.wizardry.constants.Element;
+import electroblob.wizardry.item.ItemWizardArmour;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.UUID;
+
 @Mod.EventBusSubscriber(modid = KPack.MOD_ID)
-public class ItemArmorDragonMage extends ItemArmor {
+public class ItemArmorDragonMage extends ItemWizardArmour implements IScaleArmor {
     public final EntityEquipmentSlot slot;
     public final int type;
+    private static final UUID[] ARMOR_MODIFIERS = new UUID[]{UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")};
 
     public ItemArmorDragonMage(String name, EntityEquipmentSlot slot, int type) {
-        super(ArmorMaterial.DIAMOND, 0, slot);
+        super(ArmourClass.WARLOCK, slot, type == 1 ? Element.ICE : type == 2 ? Element.LIGHTNING : Element.FIRE);
         this.slot = slot;
         this.type = type;
+        this.setCreativeTab(KPack.tabKPG);
         setRegistryName(KPack.MOD_ID, name);
         setTranslationKey(KPack.MOD_ID + "." + name);
-        setCreativeTab(CreativeTabs.COMBAT);
+
+        this.setCreativeTab(KPack.tabKPG);
     }
 
     @Override
@@ -66,6 +75,16 @@ public class ItemArmorDragonMage extends ItemArmor {
         }
     }
 
+    @Override
+    public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
+        Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(slot);
+        if (slot == this.armorType && !((ItemWizardArmour)stack.getItem()).isManaEmpty(stack)) {
+            multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor modifier", CommonProxy.mat.getDamageReductionAmount(slot), 0));
+            multimap.put(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(), new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor toughness", CommonProxy.mat.getToughness(), 0));
+        }
+
+        return multimap;
+    }
     //@Override
     //@SideOnly(Side.CLIENT)
     //public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {

@@ -1,14 +1,21 @@
-
 package com.keletu.kpack.proxy;
 
-
+import com.github.alexthe666.iceandfire.enums.EnumDragonArmor;
+import static com.github.alexthe666.iceandfire.item.IafDragonForgeRecipeRegistry.*;
+import com.github.alexthe666.iceandfire.recipe.DragonForgeRecipe;
 import com.keletu.kpack.item.ItemArmorDragonBattleMage;
 import com.keletu.kpack.item.ItemArmorDragonMage;
 import com.keletu.kpack.item.ItemArmorDragonSage;
+import electroblob.wizardry.constants.Element;
+import electroblob.wizardry.item.ItemWizardArmour;
 import net.minecraft.block.Block;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -16,7 +23,11 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.util.List;
+
 public class CommonProxy {
+    public static ItemArmor.ArmorMaterial mat = EnumHelper.addArmorMaterial("DragonScales_special", null, 36, new int[]{5, 7, 9, 5}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.0F);
+
     //Mage
     public static Item HelmFireMage = new ItemArmorDragonMage("mage_fire_helmet", EntityEquipmentSlot.HEAD, 0);
     public static Item ChestFireMage = new ItemArmorDragonMage("mage_fire_chestplate", EntityEquipmentSlot.CHEST, 0);
@@ -61,6 +72,7 @@ public class CommonProxy {
     public static Item BootsLightningBattleMage = new ItemArmorDragonBattleMage("battlemage_lightning_boots", EntityEquipmentSlot.FEET, 2);
 
     public void preInit(FMLPreInitializationEvent event) {
+
     }
 
     public void init(FMLInitializationEvent event) {
@@ -123,6 +135,80 @@ public class CommonProxy {
         event.getRegistry().register(BootsFireBattleMage);
         event.getRegistry().register(BootsLightningBattleMage);
 
+        for (EnumDragonArmor input : EnumDragonArmor.values()) {
+            for (Element element : Element.values()) {
+
+                Item sageHead = ItemWizardArmour.getArmour(element, ItemWizardArmour.ArmourClass.SAGE, EntityEquipmentSlot.HEAD);
+                Item sageChest = ItemWizardArmour.getArmour(element, ItemWizardArmour.ArmourClass.SAGE, EntityEquipmentSlot.CHEST);
+                Item sageLegs = ItemWizardArmour.getArmour(element, ItemWizardArmour.ArmourClass.SAGE, EntityEquipmentSlot.LEGS);
+                Item sageBoots = ItemWizardArmour.getArmour(element, ItemWizardArmour.ArmourClass.SAGE, EntityEquipmentSlot.FEET);
+                Item battlemageHead = ItemWizardArmour.getArmour(element, ItemWizardArmour.ArmourClass.BATTLEMAGE, EntityEquipmentSlot.HEAD);
+                Item battlemageChest = ItemWizardArmour.getArmour(element, ItemWizardArmour.ArmourClass.BATTLEMAGE, EntityEquipmentSlot.CHEST);
+                Item battlemageLegs = ItemWizardArmour.getArmour(element, ItemWizardArmour.ArmourClass.BATTLEMAGE, EntityEquipmentSlot.LEGS);
+                Item battlemageBoots = ItemWizardArmour.getArmour(element, ItemWizardArmour.ArmourClass.BATTLEMAGE, EntityEquipmentSlot.FEET);
+                Item warlockHead = ItemWizardArmour.getArmour(element, ItemWizardArmour.ArmourClass.WARLOCK, EntityEquipmentSlot.HEAD);
+                Item warlockChest = ItemWizardArmour.getArmour(element, ItemWizardArmour.ArmourClass.WARLOCK, EntityEquipmentSlot.CHEST);
+                Item warlockLegs = ItemWizardArmour.getArmour(element, ItemWizardArmour.ArmourClass.WARLOCK, EntityEquipmentSlot.LEGS);
+                Item warlockBoots = ItemWizardArmour.getArmour(element, ItemWizardArmour.ArmourClass.WARLOCK, EntityEquipmentSlot.FEET);
+
+                List<DragonForgeRecipe> recipes;
+                switch (input.eggType.dragonType) {
+                    case ICE:
+                        recipes = ICE_FORGE_RECIPES;
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.helmet), new ItemStack(sageHead), new ItemStack(HelmIceSage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.helmet), new ItemStack(warlockHead), new ItemStack(HelmIceMage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.helmet), new ItemStack(battlemageHead), new ItemStack(HelmIceBattleMage), true));
+
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.chestplate), new ItemStack(sageChest), new ItemStack(ChestIceSage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.chestplate), new ItemStack(warlockChest), new ItemStack(ChestIceMage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.chestplate), new ItemStack(battlemageChest), new ItemStack(ChestIceBattleMage), true));
+
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.leggings), new ItemStack(sageLegs), new ItemStack(LegsIceSage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.leggings), new ItemStack(warlockLegs), new ItemStack(LegsIceMage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.leggings), new ItemStack(battlemageLegs), new ItemStack(LegsIceBattleMage), true));
+
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.boots), new ItemStack(sageBoots), new ItemStack(BootsIceSage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.boots), new ItemStack(warlockBoots), new ItemStack(BootsIceMage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.boots), new ItemStack(battlemageBoots), new ItemStack(BootsIceBattleMage), true));
+                        break;
+                    case LIGHTNING:
+                        recipes = LIGHTNING_FORGE_RECIPES;
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.helmet), new ItemStack(sageHead), new ItemStack(HelmLightningSage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.helmet), new ItemStack(warlockHead), new ItemStack(HelmLightningMage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.helmet), new ItemStack(battlemageHead), new ItemStack(HelmLightningBattleMage), true));
+
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.chestplate), new ItemStack(sageChest), new ItemStack(ChestLightningSage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.chestplate), new ItemStack(warlockChest), new ItemStack(ChestLightningMage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.chestplate), new ItemStack(battlemageChest), new ItemStack(ChestLightningBattleMage), true));
+
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.leggings), new ItemStack(sageLegs), new ItemStack(LegsLightningSage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.leggings), new ItemStack(warlockLegs), new ItemStack(LegsLightningMage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.leggings), new ItemStack(battlemageLegs), new ItemStack(LegsLightningBattleMage), true));
+
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.boots), new ItemStack(sageBoots), new ItemStack(BootsLightningSage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.boots), new ItemStack(warlockBoots), new ItemStack(BootsLightningMage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.boots), new ItemStack(battlemageBoots), new ItemStack(BootsLightningBattleMage), true));
+                        break;
+                    default:
+                        recipes = FIRE_FORGE_RECIPES;
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.helmet), new ItemStack(sageHead), new ItemStack(HelmFireSage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.helmet), new ItemStack(warlockHead), new ItemStack(HelmFireMage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.helmet), new ItemStack(battlemageHead), new ItemStack(HelmFireBattleMage), true));
+
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.chestplate), new ItemStack(sageChest), new ItemStack(ChestFireSage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.chestplate), new ItemStack(warlockChest), new ItemStack(ChestFireMage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.chestplate), new ItemStack(battlemageChest), new ItemStack(ChestFireBattleMage), true));
+
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.leggings), new ItemStack(sageLegs), new ItemStack(LegsFireSage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.leggings), new ItemStack(warlockLegs), new ItemStack(LegsFireMage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.leggings), new ItemStack(battlemageLegs), new ItemStack(LegsFireBattleMage), true));
+
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.boots), new ItemStack(sageBoots), new ItemStack(BootsFireSage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.boots), new ItemStack(warlockBoots), new ItemStack(BootsFireMage), true));
+                        recipes.add(new DragonForgeRecipe(new ItemStack(input.boots), new ItemStack(battlemageBoots), new ItemStack(BootsFireBattleMage), true));
+                }
+            }
+        }
     }
 
     @SideOnly(Side.CLIENT)
