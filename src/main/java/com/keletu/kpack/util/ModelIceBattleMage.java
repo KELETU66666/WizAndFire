@@ -67,49 +67,49 @@ public class ModelIceBattleMage extends ModelBiped {
 		head8_r1.cubeList.add(new ModelBox(head8_r1, 0, 0, -1.0F, -1.0F, -2.5F, 2, 2, 6, 0.0F, true));
 
 		head7_r1 = new ModelRenderer(this);
-		head7_r1.setRotationPoint(4.4F, 0.2F, 11.2F);
+		head7_r1.setRotationPoint(4.4F, 0.2F, 12.2F);
 		helmet.addChild(head7_r1);
 		setRotationAngle(head7_r1, -0.3491F, 0.3054F, 0.0F);
 		head7_r1.cubeList.add(new ModelBox(head7_r1, 46, 0, -1.0F, -1.0F, -2.5F, 2, 2, 6, 0.0F, false));
 
 		head5_r1 = new ModelRenderer(this);
-		head5_r1.setRotationPoint(4.0F, -5.6F, 10.0F);
+		head5_r1.setRotationPoint(4.0F, -5.6F, 11.0F);
 		helmet.addChild(head5_r1);
 		setRotationAngle(head5_r1, 0.3289F, 0.3736F, 0.1239F);
 		head5_r1.cubeList.add(new ModelBox(head5_r1, 30, 0, -1.5F, -1.5F, -2.5F, 3, 3, 5, 0.0F, false));
 
 		head6_r1 = new ModelRenderer(this);
-		head6_r1.setRotationPoint(6.1F, -6.8F, 14.2F);
+		head6_r1.setRotationPoint(6.1F, -6.8F, 15.2F);
 		helmet.addChild(head6_r1);
 		setRotationAngle(head6_r1, 0.294F, 0.3736F, 0.1239F);
 		head6_r1.cubeList.add(new ModelBox(head6_r1, 22, 8, -1.5F, -1.5F, -2.5F, 2, 2, 5, 0.0F, false));
 
 		head7_r2 = new ModelRenderer(this);
-		head7_r2.setRotationPoint(1.4F, -6.2769F, 11.0496F);
+		head7_r2.setRotationPoint(1.4F, -6.2769F, 12.0496F);
 		helmet.addChild(head7_r2);
 		setRotationAngle(head7_r2, 0.3079F, 0.1248F, 0.0396F);
 		head7_r2.cubeList.add(new ModelBox(head7_r2, 22, 8, -1.0F, -1.0F, -2.5F, 2, 2, 5, 0.0F, false));
 
 		head8_r2 = new ModelRenderer(this);
-		head8_r2.setRotationPoint(-1.4F, -6.2769F, 11.0496F);
+		head8_r2.setRotationPoint(-1.4F, -6.2769F, 12.0496F);
 		helmet.addChild(head8_r2);
 		setRotationAngle(head8_r2, 0.3079F, -0.1248F, -0.0396F);
 		head8_r2.cubeList.add(new ModelBox(head8_r2, 22, 8, -1.0F, -1.0F, -2.5F, 2, 2, 5, 0.0F, true));
 
 		head6_r2 = new ModelRenderer(this);
-		head6_r2.setRotationPoint(-4.0F, -5.6F, 10.0F);
+		head6_r2.setRotationPoint(-4.0F, -5.6F, 11.0F);
 		helmet.addChild(head6_r2);
 		setRotationAngle(head6_r2, 0.3289F, -0.3736F, -0.1239F);
 		head6_r2.cubeList.add(new ModelBox(head6_r2, 30, 0, -1.5F, -1.5F, -2.5F, 3, 3, 5, 0.0F, true));
 
 		head7_r3 = new ModelRenderer(this);
-		head7_r3.setRotationPoint(-6.1F, -6.8F, 14.2F);
+		head7_r3.setRotationPoint(-6.1F, -6.8F, 15.2F);
 		helmet.addChild(head7_r3);
 		setRotationAngle(head7_r3, 0.294F, -0.3736F, -0.1239F);
 		head7_r3.cubeList.add(new ModelBox(head7_r3, 16, 1, -0.5F, -1.5F, -2.5F, 2, 2, 5, 0.0F, true));
 
 		cube_r1 = new ModelRenderer(this);
-		cube_r1.setRotationPoint(5.0F, -2.5F, 9.5F);
+		cube_r1.setRotationPoint(5.0F, -2.5F, 10.5F);
 		helmet.addChild(cube_r1);
 		setRotationAngle(cube_r1, -1.0472F, 0.0F, 1.3526F);
 		cube_r1.cubeList.add(new ModelBox(cube_r1, 32, 18, -0.5F, -2.0F, -0.5F, 1, 4, 1, 0.0F, true));
@@ -133,7 +133,7 @@ public class ModelIceBattleMage extends ModelBiped {
 		cube_r4.cubeList.add(new ModelBox(cube_r4, 32, 18, -0.5F, -2.0F, -0.5F, 1, 4, 1, 0.0F, false));
 
 		cube_r5 = new ModelRenderer(this);
-		cube_r5.setRotationPoint(-5.0F, -2.5F, 9.5F);
+		cube_r5.setRotationPoint(-5.0F, -2.5F, 10.5F);
 		helmet.addChild(cube_r5);
 		setRotationAngle(cube_r5, -1.0472F, 0.0F, -1.3526F);
 		cube_r5.cubeList.add(new ModelBox(cube_r5, 32, 18, -0.5F, -2.0F, -0.5F, 1, 4, 1, 0.0F, false));
