@@ -191,7 +191,7 @@ public class ModelFireMageArmor extends ModelBiped {
 		torso.cubeList.add(new ModelBox(torso, 41, 47, -4.1F, -24.1F, -2.5F, 1, 12, 5, 0.0F, true));
 
 		legl = new ModelRenderer(this);
-		legl.setRotationPoint(-1.9F, 4F, -2.7F);
+		legl.setRotationPoint(-1.9F, 4.0F, -2.7F);
 		
 
 		Scroll4_r1 = new ModelRenderer(this);

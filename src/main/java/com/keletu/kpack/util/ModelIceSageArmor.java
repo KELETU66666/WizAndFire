@@ -78,7 +78,7 @@ public class ModelIceSageArmor extends ModelBiped {
 		head7_r1.cubeList.add(new ModelBox(head7_r1, 16, 1, -0.5F, -1.5F, -2.5F, 2, 2, 5, 0.0F, true));
 
 		head6_r1 = new ModelRenderer(this);
-		head6_r1.setRotationPoint(-4.0F, -5.6F, 10.0F);
+		head6_r1.setRotationPoint(-4.0F, -5.6F, 11.0F);
 		helmet.addChild(head6_r1);
 		setRotationAngle(head6_r1, 0.3289F, -0.3736F, -0.1239F);
 		head6_r1.cubeList.add(new ModelBox(head6_r1, 30, 0, -1.5F, -1.5F, -2.5F, 3, 3, 5, 0.0F, true));
@@ -90,19 +90,19 @@ public class ModelIceSageArmor extends ModelBiped {
 		head7_r2.cubeList.add(new ModelBox(head7_r2, 46, 0, -1.0F, -1.0F, -2.5F, 2, 2, 6, 0.0F, false));
 
 		head7_r3 = new ModelRenderer(this);
-		head7_r3.setRotationPoint(-0.2F, -3.7F, 12.5F);
+		head7_r3.setRotationPoint(-0.2F, -2.7F, 13.5F);
 		helmet.addChild(head7_r3);
-		setRotationAngle(head7_r3, -0.2598F, 0.2117F, 0.7036F);
-		head7_r3.cubeList.add(new ModelBox(head7_r3, 56, 0, -7.5F, -1.5F, -0.5F, 15, 3, 1, 0.0F, false));
+		setRotationAngle(head7_r3, -0.2444F, 0.1408F, 0.689F);
+		head7_r3.cubeList.add(new ModelBox(head7_r3, 55, 0, -8.5F, -1.5F, -0.5F, 16, 3, 1, 0.0F, false));
 
 		head8_r2 = new ModelRenderer(this);
-		head8_r2.setRotationPoint(-1.4F, -6.2769F, 11.0496F);
+		head8_r2.setRotationPoint(-1.4F, -6.2769F, 12.0496F);
 		helmet.addChild(head8_r2);
 		setRotationAngle(head8_r2, 0.3079F, -0.1248F, -0.0396F);
 		head8_r2.cubeList.add(new ModelBox(head8_r2, 22, 8, -1.0F, -1.0F, -2.5F, 2, 2, 5, 0.0F, true));
 
 		head7_r4 = new ModelRenderer(this);
-		head7_r4.setRotationPoint(1.4F, -6.2769F, 11.0496F);
+		head7_r4.setRotationPoint(1.4F, -6.2769F, 12.0496F);
 		helmet.addChild(head7_r4);
 		setRotationAngle(head7_r4, 0.3079F, 0.1248F, 0.0396F);
 		head7_r4.cubeList.add(new ModelBox(head7_r4, 22, 8, -1.0F, -1.0F, -2.5F, 2, 2, 5, 0.0F, false));
@@ -114,7 +114,7 @@ public class ModelIceSageArmor extends ModelBiped {
 		head6_r2.cubeList.add(new ModelBox(head6_r2, 22, 8, -1.5F, -1.5F, -2.5F, 2, 2, 5, 0.0F, false));
 
 		head5_r1 = new ModelRenderer(this);
-		head5_r1.setRotationPoint(4.0F, -5.6F, 10.0F);
+		head5_r1.setRotationPoint(4.0F, -5.6F, 11.0F);
 		helmet.addChild(head5_r1);
 		setRotationAngle(head5_r1, 0.3289F, 0.3736F, 0.1239F);
 		head5_r1.cubeList.add(new ModelBox(head5_r1, 30, 0, -1.5F, -1.5F, -2.5F, 3, 3, 5, 0.0F, false));

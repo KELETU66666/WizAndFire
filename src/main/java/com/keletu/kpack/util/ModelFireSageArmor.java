@@ -59,46 +59,46 @@ public class ModelFireSageArmor extends ModelBiped {
 		helmet.setRotationPoint(0.0F, -2.0F, -6.5F);
 		helmet.cubeList.add(new ModelBox(helmet, 92, 37, -4.5F, -6.5F, 2.0F, 9, 9, 9, 0.0F, false));
 		helmet.cubeList.add(new ModelBox(helmet, 0, 8, -3.5F, -5.5F, -1.5F, 7, 3, 4, 0.0F, false));
-		helmet.cubeList.add(new ModelBox(helmet, 64, 4, 4.6F, 1.0F, 12.4F, 1, 3, 1, 0.0F, false));
+		helmet.cubeList.add(new ModelBox(helmet, 64, 4, 4.6F, 1.0F, 13.4F, 1, 3, 1, 0.0F, false));
 
 		head8_r1 = new ModelRenderer(this);
-		head8_r1.setRotationPoint(-4.4F, 0.2F, 11.2F);
+		head8_r1.setRotationPoint(-4.4F, 0.2F, 12.2F);
 		helmet.addChild(head8_r1);
 		setRotationAngle(head8_r1, -0.3491F, -0.3054F, 0.0F);
 		head8_r1.cubeList.add(new ModelBox(head8_r1, 0, 0, -1.0F, -1.0F, -2.5F, 2, 2, 6, 0.0F, true));
 
 		head7_r1 = new ModelRenderer(this);
-		head7_r1.setRotationPoint(-6.1F, -6.8F, 14.2F);
+		head7_r1.setRotationPoint(-6.1F, -6.8F, 16.2F);
 		helmet.addChild(head7_r1);
 		setRotationAngle(head7_r1, 0.294F, -0.3736F, -0.1239F);
 		head7_r1.cubeList.add(new ModelBox(head7_r1, 16, 1, -0.5F, -1.5F, -2.5F, 2, 2, 5, 0.0F, true));
 
 		head6_r1 = new ModelRenderer(this);
-		head6_r1.setRotationPoint(-4.0F, -5.6F, 10.0F);
+		head6_r1.setRotationPoint(-4.0F, -5.6F, 12.0F);
 		helmet.addChild(head6_r1);
 		setRotationAngle(head6_r1, 0.3289F, -0.3736F, -0.1239F);
 		head6_r1.cubeList.add(new ModelBox(head6_r1, 30, 0, -1.5F, -1.5F, -2.5F, 3, 3, 5, 0.0F, true));
 
 		head7_r2 = new ModelRenderer(this);
-		head7_r2.setRotationPoint(4.4F, 0.2F, 11.2F);
+		head7_r2.setRotationPoint(4.4F, 0.2F, 12.2F);
 		helmet.addChild(head7_r2);
 		setRotationAngle(head7_r2, -0.3491F, 0.3054F, 0.0F);
 		head7_r2.cubeList.add(new ModelBox(head7_r2, 46, 0, -1.0F, -1.0F, -2.5F, 2, 2, 6, 0.0F, false));
 
 		head7_r3 = new ModelRenderer(this);
-		head7_r3.setRotationPoint(0.0F, -7.3F, 14.9F);
+		head7_r3.setRotationPoint(0.0F, -7.3F, 16.9F);
 		helmet.addChild(head7_r3);
 		setRotationAngle(head7_r3, 0.2182F, 0.0F, 0.0F);
 		head7_r3.cubeList.add(new ModelBox(head7_r3, 56, 0, -7.5F, -1.5F, -0.5F, 15, 3, 1, 0.0F, false));
 
 		head6_r2 = new ModelRenderer(this);
-		head6_r2.setRotationPoint(6.1F, -6.8F, 14.2F);
+		head6_r2.setRotationPoint(6.1F, -6.8F, 16.2F);
 		helmet.addChild(head6_r2);
 		setRotationAngle(head6_r2, 0.294F, 0.3736F, 0.1239F);
 		head6_r2.cubeList.add(new ModelBox(head6_r2, 22, 8, -1.5F, -1.5F, -2.5F, 2, 2, 5, 0.0F, false));
 
 		head5_r1 = new ModelRenderer(this);
-		head5_r1.setRotationPoint(4.0F, -5.6F, 10.0F);
+		head5_r1.setRotationPoint(4.0F, -5.6F, 12.0F);
 		helmet.addChild(head5_r1);
 		setRotationAngle(head5_r1, 0.3289F, 0.3736F, 0.1239F);
 		head5_r1.cubeList.add(new ModelBox(head5_r1, 30, 0, -1.5F, -1.5F, -2.5F, 3, 3, 5, 0.0F, false));
@@ -183,7 +183,7 @@ public class ModelFireSageArmor extends ModelBiped {
 		ChestClothR_r1.cubeList.add(new ModelBox(ChestClothR_r1, 75, 45, 4.7F, -4.5F, -0.5F, 2, 9, 1, 0.0F, true));
 
 		LegClothR_r1 = new ModelRenderer(this);
-		LegClothR_r1.setRotationPoint(-2.6F, -9.8427F, -4.0653F);
+		LegClothR_r1.setRotationPoint(-2.6F, -9.8427F, -4.0652F);
 		torso.addChild(LegClothR_r1);
 		setRotationAngle(LegClothR_r1, -0.0436F, 0.0F, 0.0F);
 		LegClothR_r1.cubeList.add(new ModelBox(LegClothR_r1, 75, 55, -1.5F, -4.0F, -0.5F, 2, 8, 1, 0.0F, false));
