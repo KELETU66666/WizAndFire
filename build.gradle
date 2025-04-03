@@ -37,7 +37,7 @@ repositories {
 }
 
 dependencies {
-    deobfCompile 'curse.maven:baubles-227083:2518667'
+    deobfCompile "curse.maven:baubles-227083:2518667"
     deobfCompile "curse.maven:llibrary-243298:2504999"
     deobfCompile "curse.maven:electroblobs-wizardry-265642:5354477"
     deobfCompile "curse.maven:iceandfire-rlcraft-888556:6334937"
