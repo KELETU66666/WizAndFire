@@ -33,7 +33,7 @@ public class KPack {
 
     public static final String MOD_ID = "kpack";
     public static final String MOD_NAME = "Keletu's Pack Gears";
-    public static final String VERSION = "0.2.0";
+    public static final String VERSION = "1.0.0";
 
     public static CreativeTabs tabKPG = new CreativeTabs("tabKeletuPackGears") {
         @SideOnly(Side.CLIENT)
