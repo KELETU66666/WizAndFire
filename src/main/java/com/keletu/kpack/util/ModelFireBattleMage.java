@@ -1,10 +1,9 @@
 package com.keletu.kpack.util;
 
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 
-public class ModelFireBattleMage extends ModelBiped {
+public class ModelFireBattleMage extends ModelArmorStandFixed {
 	private final ModelRenderer helmet;
 	private final ModelRenderer cube_r1;
 	private final ModelRenderer cube_r2;

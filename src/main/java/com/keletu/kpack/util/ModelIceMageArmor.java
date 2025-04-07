@@ -1,10 +1,9 @@
 package com.keletu.kpack.util;
 
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 
-public class ModelIceMageArmor extends ModelBiped {
+public class ModelIceMageArmor extends ModelArmorStandFixed {
     private final ModelRenderer cowl;
     private final ModelRenderer head4_r1;
     private final ModelRenderer head4_r2;

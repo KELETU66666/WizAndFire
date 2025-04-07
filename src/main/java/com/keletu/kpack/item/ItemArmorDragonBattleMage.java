@@ -1,9 +1,6 @@
 package com.keletu.kpack.item;
 
 import com.keletu.kpack.KPack;
-import com.keletu.kpack.util.ModelFireBattleMage;
-import com.keletu.kpack.util.ModelIceBattleMage;
-import com.keletu.kpack.util.ModelLightningBattleMage;
 import electroblob.wizardry.constants.Element;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
@@ -14,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemArmorDragonBattleMage extends ItemWizardArmourSpecial implements IScaleArmor{
+public class ItemArmorDragonBattleMage extends ItemWizardArmorSpecial {
     public final EntityEquipmentSlot slot;
     public final int type;
 
@@ -40,7 +37,7 @@ public class ItemArmorDragonBattleMage extends ItemWizardArmourSpecial implement
 
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
-        switch (this.type){
+        switch (this.type) {
             case 1:
                 return "kpack:textures/models/armor/texture_battlemage_ice.png";
             case 2:
@@ -54,13 +51,6 @@ public class ItemArmorDragonBattleMage extends ItemWizardArmourSpecial implement
     @Override
     @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _deafult) {
-        switch (this.type){
-            case 1:
-                return new ModelIceBattleMage(this.slot == EntityEquipmentSlot.LEGS);
-            case 2:
-                return new ModelLightningBattleMage(this.slot == EntityEquipmentSlot.LEGS);
-            default:
-                return new ModelFireBattleMage(this.slot == EntityEquipmentSlot.LEGS);
-        }
+        return KPack.proxy.getBattlemageModel().get(this);
     }
 }

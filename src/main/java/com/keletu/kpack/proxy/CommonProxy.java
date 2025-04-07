@@ -1,13 +1,15 @@
 package com.keletu.kpack.proxy;
 
 import com.github.alexthe666.iceandfire.enums.EnumDragonArmor;
+import static com.github.alexthe666.iceandfire.item.IafDragonForgeRecipeRegistry.*;
 import com.github.alexthe666.iceandfire.recipe.DragonForgeRecipe;
 import com.keletu.kpack.item.ItemArmorDragonBattleMage;
 import com.keletu.kpack.item.ItemArmorDragonMage;
 import com.keletu.kpack.item.ItemArmorDragonSage;
-import com.keletu.kpack.item.ItemWizardArmourSpecial;
+import com.keletu.kpack.item.ItemWizardArmorSpecial;
 import electroblob.wizardry.constants.Element;
 import net.minecraft.block.Block;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -21,11 +23,10 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import java.util.List;
-
-import static com.github.alexthe666.iceandfire.item.IafDragonForgeRecipeRegistry.*;
+import java.util.Map;
 
 public class CommonProxy {
-    public static ItemArmor.ArmorMaterial mat = EnumHelper.addArmorMaterial("DragonScales_special", null, 36, new int[]{5, 7, 9, 5}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.0F);
+    public static ItemArmor.ArmorMaterial mat = EnumHelper.addArmorMaterial("DragonScales_special", "", 36, new int[]{5, 7, 9, 5}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.0F);
 
     //Mage
     public static Item HelmFireMage = new ItemArmorDragonMage("mage_fire_helmet", EntityEquipmentSlot.HEAD, 0);
@@ -137,18 +138,18 @@ public class CommonProxy {
         for (EnumDragonArmor input : EnumDragonArmor.values()) {
             for (Element element : Element.values()) {
 
-                Item sageHead = ItemWizardArmourSpecial.getArmour(element, ItemWizardArmourSpecial.ArmourClass.SAGE, EntityEquipmentSlot.HEAD);
-                Item sageChest = ItemWizardArmourSpecial.getArmour(element, ItemWizardArmourSpecial.ArmourClass.SAGE, EntityEquipmentSlot.CHEST);
-                Item sageLegs = ItemWizardArmourSpecial.getArmour(element, ItemWizardArmourSpecial.ArmourClass.SAGE, EntityEquipmentSlot.LEGS);
-                Item sageBoots = ItemWizardArmourSpecial.getArmour(element, ItemWizardArmourSpecial.ArmourClass.SAGE, EntityEquipmentSlot.FEET);
-                Item battlemageHead = ItemWizardArmourSpecial.getArmour(element, ItemWizardArmourSpecial.ArmourClass.BATTLEMAGE, EntityEquipmentSlot.HEAD);
-                Item battlemageChest = ItemWizardArmourSpecial.getArmour(element, ItemWizardArmourSpecial.ArmourClass.BATTLEMAGE, EntityEquipmentSlot.CHEST);
-                Item battlemageLegs = ItemWizardArmourSpecial.getArmour(element, ItemWizardArmourSpecial.ArmourClass.BATTLEMAGE, EntityEquipmentSlot.LEGS);
-                Item battlemageBoots = ItemWizardArmourSpecial.getArmour(element, ItemWizardArmourSpecial.ArmourClass.BATTLEMAGE, EntityEquipmentSlot.FEET);
-                Item warlockHead = ItemWizardArmourSpecial.getArmour(element, ItemWizardArmourSpecial.ArmourClass.WARLOCK, EntityEquipmentSlot.HEAD);
-                Item warlockChest = ItemWizardArmourSpecial.getArmour(element, ItemWizardArmourSpecial.ArmourClass.WARLOCK, EntityEquipmentSlot.CHEST);
-                Item warlockLegs = ItemWizardArmourSpecial.getArmour(element, ItemWizardArmourSpecial.ArmourClass.WARLOCK, EntityEquipmentSlot.LEGS);
-                Item warlockBoots = ItemWizardArmourSpecial.getArmour(element, ItemWizardArmourSpecial.ArmourClass.WARLOCK, EntityEquipmentSlot.FEET);
+                Item sageHead = ItemWizardArmorSpecial.getArmour(element, ItemWizardArmorSpecial.ArmourClass.SAGE, EntityEquipmentSlot.HEAD);
+                Item sageChest = ItemWizardArmorSpecial.getArmour(element, ItemWizardArmorSpecial.ArmourClass.SAGE, EntityEquipmentSlot.CHEST);
+                Item sageLegs = ItemWizardArmorSpecial.getArmour(element, ItemWizardArmorSpecial.ArmourClass.SAGE, EntityEquipmentSlot.LEGS);
+                Item sageBoots = ItemWizardArmorSpecial.getArmour(element, ItemWizardArmorSpecial.ArmourClass.SAGE, EntityEquipmentSlot.FEET);
+                Item battlemageHead = ItemWizardArmorSpecial.getArmour(element, ItemWizardArmorSpecial.ArmourClass.BATTLEMAGE, EntityEquipmentSlot.HEAD);
+                Item battlemageChest = ItemWizardArmorSpecial.getArmour(element, ItemWizardArmorSpecial.ArmourClass.BATTLEMAGE, EntityEquipmentSlot.CHEST);
+                Item battlemageLegs = ItemWizardArmorSpecial.getArmour(element, ItemWizardArmorSpecial.ArmourClass.BATTLEMAGE, EntityEquipmentSlot.LEGS);
+                Item battlemageBoots = ItemWizardArmorSpecial.getArmour(element, ItemWizardArmorSpecial.ArmourClass.BATTLEMAGE, EntityEquipmentSlot.FEET);
+                Item warlockHead = ItemWizardArmorSpecial.getArmour(element, ItemWizardArmorSpecial.ArmourClass.WARLOCK, EntityEquipmentSlot.HEAD);
+                Item warlockChest = ItemWizardArmorSpecial.getArmour(element, ItemWizardArmorSpecial.ArmourClass.WARLOCK, EntityEquipmentSlot.CHEST);
+                Item warlockLegs = ItemWizardArmorSpecial.getArmour(element, ItemWizardArmorSpecial.ArmourClass.WARLOCK, EntityEquipmentSlot.LEGS);
+                Item warlockBoots = ItemWizardArmorSpecial.getArmour(element, ItemWizardArmorSpecial.ArmourClass.WARLOCK, EntityEquipmentSlot.FEET);
 
                 List<DragonForgeRecipe> recipes;
                 switch (input.eggType.dragonType) {
@@ -212,5 +213,17 @@ public class CommonProxy {
 
     public void modelRegistryEvent(ModelRegistryEvent event) {
 
+    }
+
+    public Map<Item, ModelBiped> getWarlockModel() {
+        return null;
+    }
+
+    public Map<Item, ModelBiped> getSageModel() {
+        return null;
+    }
+
+    public Map<Item, ModelBiped> getBattlemageModel() {
+        return null;
     }
 }

@@ -1,10 +1,9 @@
 package com.keletu.kpack.util;
 
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 
-public class ModelLightningSageArmor extends ModelBiped {
+public class ModelLightningSageArmor extends ModelArmorStandFixed {
 	private final ModelRenderer helmet;
 	private final ModelRenderer head6_r1;
 	private final ModelRenderer head9_r1;
@@ -66,52 +65,52 @@ public class ModelLightningSageArmor extends ModelBiped {
 		helmet.setRotationPoint(0.0F, -2.0F, -6.5F);
 		helmet.cubeList.add(new ModelBox(helmet, 92, 37, -4.5F, -6.5F, 2.0F, 9, 9, 9, 0.0F, false));
 		helmet.cubeList.add(new ModelBox(helmet, 0, 8, -3.5F, -5.5F, -1.5F, 7, 3, 4, 0.0F, false));
-		helmet.cubeList.add(new ModelBox(helmet, 64, 4, 3.6F, -7.0F, 13.4F, 1, 3, 1, 0.0F, false));
+		helmet.cubeList.add(new ModelBox(helmet, 64, 4, 3.6F, -7.0F, 15.4F, 1, 3, 1, 0.0F, false));
 
 		head6_r1 = new ModelRenderer(this);
-		head6_r1.setRotationPoint(-4.0F, -5.6F, 10.0F);
+		head6_r1.setRotationPoint(-4.0F, -5.6F, 12.0F);
 		helmet.addChild(head6_r1);
 		setRotationAngle(head6_r1, 0.3289F, -0.3736F, -0.1239F);
 		head6_r1.cubeList.add(new ModelBox(head6_r1, 30, 0, -1.5F, -1.5F, -2.5F, 3, 3, 5, 0.0F, true));
 
 		head9_r1 = new ModelRenderer(this);
-		head9_r1.setRotationPoint(-3.6F, 0.6F, 9.8F);
+		head9_r1.setRotationPoint(-3.6F, 0.6F, 11.8F);
 		helmet.addChild(head9_r1);
 		setRotationAngle(head9_r1, -0.1352F, -0.3059F, 0.0119F);
 		head9_r1.cubeList.add(new ModelBox(head9_r1, 46, 0, -1.0F, -1.0F, -2.5F, 2, 2, 6, 0.0F, true));
 
 		head8_r1 = new ModelRenderer(this);
-		head8_r1.setRotationPoint(-3.6F, -1.8F, 9.8F);
+		head8_r1.setRotationPoint(-3.6F, -1.8F, 11.8F);
 		helmet.addChild(head8_r1);
 		setRotationAngle(head8_r1, 0.0829F, -0.3059F, 0.0119F);
 		head8_r1.cubeList.add(new ModelBox(head8_r1, 0, 0, -1.0F, -1.0F, -2.5F, 2, 2, 6, 0.0F, true));
 
 		head8_r2 = new ModelRenderer(this);
-		head8_r2.setRotationPoint(3.6F, 0.6F, 9.8F);
+		head8_r2.setRotationPoint(3.6F, 0.6F, 11.8F);
 		helmet.addChild(head8_r2);
 		setRotationAngle(head8_r2, -0.1352F, 0.3059F, -0.0119F);
 		head8_r2.cubeList.add(new ModelBox(head8_r2, 0, 0, -1.0F, -1.0F, -2.5F, 2, 2, 6, 0.0F, false));
 
 		head7_r1 = new ModelRenderer(this);
-		head7_r1.setRotationPoint(3.6F, -1.8F, 9.8F);
+		head7_r1.setRotationPoint(3.6F, -1.8F, 11.8F);
 		helmet.addChild(head7_r1);
 		setRotationAngle(head7_r1, 0.0829F, 0.3059F, -0.0119F);
 		head7_r1.cubeList.add(new ModelBox(head7_r1, 46, 0, -1.0F, -1.0F, -2.5F, 2, 2, 6, 0.0F, false));
 
 		head7_r2 = new ModelRenderer(this);
-		head7_r2.setRotationPoint(-5.1F, -6.5F, 14.2F);
+		head7_r2.setRotationPoint(-5.1F, -6.5F, 16.2F);
 		helmet.addChild(head7_r2);
 		setRotationAngle(head7_r2, 0.1429F, 0.0494F, -0.0177F);
 		head7_r2.cubeList.add(new ModelBox(head7_r2, 16, 1, -0.5F, -1.5F, -2.5F, 2, 2, 5, 0.0F, true));
 
 		head6_r2 = new ModelRenderer(this);
-		head6_r2.setRotationPoint(5.1F, -6.5F, 14.2F);
+		head6_r2.setRotationPoint(5.1F, -6.5F, 16.2F);
 		helmet.addChild(head6_r2);
 		setRotationAngle(head6_r2, 0.1433F, -0.0925F, 0.0115F);
 		head6_r2.cubeList.add(new ModelBox(head6_r2, 22, 8, -1.5F, -1.5F, -2.5F, 2, 2, 5, 0.0F, false));
 
 		head5_r1 = new ModelRenderer(this);
-		head5_r1.setRotationPoint(4.0F, -5.6F, 10.0F);
+		head5_r1.setRotationPoint(4.0F, -5.6F, 12.0F);
 		helmet.addChild(head5_r1);
 		setRotationAngle(head5_r1, 0.3289F, 0.3736F, 0.1239F);
 		head5_r1.cubeList.add(new ModelBox(head5_r1, 30, 0, -1.5F, -1.5F, -2.5F, 3, 3, 5, 0.0F, false));

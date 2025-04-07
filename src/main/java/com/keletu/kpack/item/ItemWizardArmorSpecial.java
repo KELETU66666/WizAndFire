@@ -21,7 +21,6 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentMending;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -52,7 +51,7 @@ import java.util.*;
 import java.util.function.Supplier;
 
 @EventBusSubscriber
-public class ItemWizardArmourSpecial extends ItemArmor implements IWorkbenchItem, IManaStoringItem {
+public class ItemWizardArmorSpecial extends ItemArmor implements IWorkbenchItem, IManaStoringItem {
     private static final float SAGE_OTHER_COST_REDUCTION = 0.2F;
     private static final float WARLOCK_SPEED_BOOST = 0.2F;
     private static final UUID WARLOCK_SPEED_BOOST_UUID = UUID.fromString("4bad7152-2663-4b1b-bb59-552e92847031");
@@ -63,7 +62,7 @@ public class ItemWizardArmourSpecial extends ItemArmor implements IWorkbenchItem
     @Override
     public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
         Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(slot);
-        if (slot == this.armorType && !((ItemWizardArmourSpecial)stack.getItem()).isManaEmpty(stack)) {
+        if (slot == this.armorType && !((ItemWizardArmorSpecial) stack.getItem()).isManaEmpty(stack)) {
             multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor modifier", CommonProxy.mat.getDamageReductionAmount(slot), 0));
             multimap.put(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName(), new AttributeModifier(ARMOR_MODIFIERS[slot.getIndex()], "Armor toughness", CommonProxy.mat.getToughness(), 0));
         }
@@ -71,17 +70,7 @@ public class ItemWizardArmourSpecial extends ItemArmor implements IWorkbenchItem
         return multimap;
     }
 
-    /** @deprecated */
-    @Deprecated
-    public ItemWizardArmourSpecial(ItemArmor.ArmorMaterial material, int renderIndex, EntityEquipmentSlot armourType, Element element) {
-        super(material, renderIndex, armourType);
-        this.armourClass = ItemWizardArmourSpecial.ArmourClass.WIZARD;
-        this.element = element;
-        this.setCreativeTab(WizardryTabs.GEAR);
-        WizardryRecipes.addToManaFlaskCharging(this);
-    }
-
-    public ItemWizardArmourSpecial(ArmourClass armourClass, EntityEquipmentSlot armourType, Element element) {
+    public ItemWizardArmorSpecial(ArmourClass armourClass, EntityEquipmentSlot armourType, Element element) {
         super(armourClass.material, 1, armourType);
         this.armourClass = armourClass;
         this.element = element;
@@ -109,41 +98,38 @@ public class ItemWizardArmourSpecial extends ItemArmor implements IWorkbenchItem
     }
 
     public int getRGBDurabilityForDisplay(ItemStack stack) {
-        return DrawingUtils.mix(16747518, 9318116, (float)this.getDurabilityForDisplay(stack));
+        return DrawingUtils.mix(16747518, 9318116, (float) this.getDurabilityForDisplay(stack));
     }
 
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag advanced) {
         if (this.element != null) {
-            tooltip.add(Wizardry.proxy.translate("item.ebwizardry:wizard_armour.element_cost_reduction", (new Style()).setColor(TextFormatting.DARK_GRAY), (int)(this.armourClass.elementalCostReduction * 100.0F), this.element.getDisplayName()));
+            tooltip.add(Wizardry.proxy.translate("item.ebwizardry:wizard_armour.element_cost_reduction", (new Style()).setColor(TextFormatting.DARK_GRAY), (int) (this.armourClass.elementalCostReduction * 100.0F), this.element.getDisplayName()));
         }
 
-        if (this.armourClass == ItemWizardArmourSpecial.ArmourClass.SAGE) {
+        if (this.armourClass == ItemWizardArmorSpecial.ArmourClass.SAGE) {
             tooltip.add(Wizardry.proxy.translate("item.ebwizardry:wizard_armour.enchantability", (new Style()).setColor(TextFormatting.BLUE)));
         }
 
         if (this.armourClass.cooldownReduction > 0.0F) {
-            tooltip.add(Wizardry.proxy.translate("item.ebwizardry:wizard_armour.cooldown_reduction", (new Style()).setColor(TextFormatting.DARK_GRAY), (int)(this.armourClass.cooldownReduction * 100.0F)));
+            tooltip.add(Wizardry.proxy.translate("item.ebwizardry:wizard_armour.cooldown_reduction", (new Style()).setColor(TextFormatting.DARK_GRAY), (int) (this.armourClass.cooldownReduction * 100.0F)));
         }
 
-        if (this.armourClass != ItemWizardArmourSpecial.ArmourClass.WIZARD) {
-            tooltip.add(Wizardry.proxy.translate("item.ebwizardry:wizard_armour.full_set", (new Style()).setColor(TextFormatting.AQUA)));
-            Object args = new Object[0];
-            if (this.armourClass == ItemWizardArmourSpecial.ArmourClass.SAGE) {
-                args = 20;
-            }
-
-            if (this.armourClass == ItemWizardArmourSpecial.ArmourClass.WARLOCK) {
-                args = 20;
-            }
-
-            tooltip.add(Wizardry.proxy.translate("item.ebwizardry:" + this.armourClass.name + "_armour.full_set_bonus", (new Style()).setColor(TextFormatting.AQUA), args));
+        tooltip.add(Wizardry.proxy.translate("item.ebwizardry:wizard_armour.full_set", (new Style()).setColor(TextFormatting.AQUA)));
+        Object args = new Object[0];
+        if (this.armourClass == ItemWizardArmorSpecial.ArmourClass.SAGE) {
+            args = 20;
         }
 
+        if (this.armourClass == ItemWizardArmorSpecial.ArmourClass.WARLOCK) {
+            args = 20;
+        }
+
+        tooltip.add(Wizardry.proxy.translate("item.ebwizardry:" + this.armourClass.name + "_armour.full_set_bonus", (new Style()).setColor(TextFormatting.AQUA), args));
     }
 
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-        if (this.armorType == EntityEquipmentSlot.HEAD && player.ticksExisted % 20 == 0 && isWearingFullSet(player, this.element, ItemWizardArmourSpecial.ArmourClass.BATTLEMAGE) && doAllArmourPiecesHaveMana(player)) {
+        if (this.armorType == EntityEquipmentSlot.HEAD && player.ticksExisted % 20 == 0 && isWearingFullSet(player, this.element, ItemWizardArmorSpecial.ArmourClass.BATTLEMAGE) && doAllArmourPiecesHaveMana(player)) {
             player.addPotionEffect(new PotionEffect(WizardryPotions.ward, 219, 0, true, false));
         }
 
@@ -155,7 +141,7 @@ public class ItemWizardArmourSpecial extends ItemArmor implements IWorkbenchItem
         }
 
         modifiers.set(WizardryItems.cooldown_upgrade, modifiers.get(WizardryItems.cooldown_upgrade) - this.armourClass.cooldownReduction, true);
-        if (this.armorType == EntityEquipmentSlot.HEAD && isWearingFullSet(caster, this.element, this.armourClass) && doAllArmourPiecesHaveMana(caster) && this.armourClass == ItemWizardArmourSpecial.ArmourClass.SAGE && spell.getElement() != this.element) {
+        if (this.armorType == EntityEquipmentSlot.HEAD && isWearingFullSet(caster, this.element, this.armourClass) && doAllArmourPiecesHaveMana(caster) && this.armourClass == ItemWizardArmorSpecial.ArmourClass.SAGE && spell.getElement() != this.element) {
             modifiers.set("cost", 0.8F, false);
         }
 
@@ -168,21 +154,6 @@ public class ItemWizardArmourSpecial extends ItemArmor implements IWorkbenchItem
     @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armourSlot, ModelBiped original) {
         return armourSlot == EntityEquipmentSlot.LEGS && !entityLiving.isInvisible() ? null : Wizardry.proxy.getWizardArmourModel(this.getArmorMaterial());
-    }
-
-    public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
-        String s = this.armourClass.name + "_armour";
-        if (Wizardry.tisTheSeason && this.armourClass == ItemWizardArmourSpecial.ArmourClass.WIZARD) {
-            s = s + "_festive";
-        } else if (this.element != null) {
-            s = s + "_" + this.element.getName();
-        }
-
-        if (slot == EntityEquipmentSlot.LEGS) {
-            s = s + "_legs";
-        }
-
-        return "ebwizardry:textures/armour/" + s + ".png";
     }
 
     public boolean getIsRepairable(ItemStack stack, ItemStack material) {
@@ -205,7 +176,7 @@ public class ItemWizardArmourSpecial extends ItemArmor implements IWorkbenchItem
         boolean changed = false;
         if (crystals.getStack() != ItemStack.EMPTY && !this.isManaFull(centre.getStack())) {
             int chargeDepleted = this.getManaCapacity(centre.getStack()) - this.getMana(centre.getStack());
-            int manaPerItem = crystals.getStack().getItem() instanceof IManaStoringItem ? ((IManaStoringItem)crystals.getStack().getItem()).getMana(crystals.getStack()) : (crystals.getStack().getItem() instanceof ItemCrystal ? 100 : 10);
+            int manaPerItem = crystals.getStack().getItem() instanceof IManaStoringItem ? ((IManaStoringItem) crystals.getStack().getItem()).getMana(crystals.getStack()) : (crystals.getStack().getItem() instanceof ItemCrystal ? 100 : 10);
             if (crystals.getStack().getItem() == WizardryItems.crystal_shard) {
                 manaPerItem = 10;
             }
@@ -219,7 +190,7 @@ public class ItemWizardArmourSpecial extends ItemArmor implements IWorkbenchItem
                 crystals.decrStackSize(crystals.getStack().getCount());
             } else {
                 this.setMana(centre.getStack(), this.getManaCapacity(centre.getStack()));
-                crystals.decrStackSize((int)Math.ceil((double)chargeDepleted / 100.0));
+                crystals.decrStackSize((int) Math.ceil((double) chargeDepleted / 100.0));
             }
 
             changed = true;
@@ -231,7 +202,7 @@ public class ItemWizardArmourSpecial extends ItemArmor implements IWorkbenchItem
     @SubscribeEvent
     public static void onLivingEquipmentChangeEvent(LivingEquipmentChangeEvent event) {
         IAttributeInstance movementSpeed = event.getEntityLiving().getAttributeMap().getAttributeInstance(SharedMonsterAttributes.MOVEMENT_SPEED);
-        if (isWearingFullSet(event.getEntityLiving(), null, ItemWizardArmourSpecial.ArmourClass.WARLOCK) && doAllArmourPiecesHaveMana(event.getEntityLiving())) {
+        if (isWearingFullSet(event.getEntityLiving(), null, ItemWizardArmorSpecial.ArmourClass.WARLOCK) && doAllArmourPiecesHaveMana(event.getEntityLiving())) {
             if (movementSpeed.getModifier(WARLOCK_SPEED_BOOST_UUID) == null) {
                 movementSpeed.applyModifier(new AttributeModifier(WARLOCK_SPEED_BOOST_UUID, "Warlock set bonus", 0.20000000298023224, 1));
             }
@@ -242,7 +213,7 @@ public class ItemWizardArmourSpecial extends ItemArmor implements IWorkbenchItem
     }
 
     @SubscribeEvent(
-        priority = EventPriority.LOW
+            priority = EventPriority.LOW
     )
     public static void onSpellCastPreEvent(SpellCastEvent.Pre event) {
         if (event.getCaster() != null) {
@@ -250,21 +221,23 @@ public class ItemWizardArmourSpecial extends ItemArmor implements IWorkbenchItem
             Arrays.stream(InventoryUtils.ARMOUR_SLOTS).map((s) -> {
                 return event.getCaster().getItemStackFromSlot(s).getItem();
             }).filter((i) -> {
-                return i instanceof ItemWizardArmourSpecial;
+                return i instanceof ItemWizardArmorSpecial;
             }).forEach((i) -> {
-                ((ItemWizardArmourSpecial)i).applySpellModifiers(event.getCaster(), event.getSpell(), armourModifiers);
+                ((ItemWizardArmorSpecial) i).applySpellModifiers(event.getCaster(), event.getSpell(), armourModifiers);
             });
             event.getModifiers().combine(armourModifiers);
         }
     }
 
-    /** @deprecated */
+    /**
+     * @deprecated
+     */
     @Deprecated
     public static int getMatchingArmourCount(EntityLivingBase entity, Element element) {
-        return (int)Arrays.stream(InventoryUtils.ARMOUR_SLOTS).map((s) -> {
+        return (int) Arrays.stream(InventoryUtils.ARMOUR_SLOTS).map((s) -> {
             return entity.getItemStackFromSlot(s).getItem();
         }).filter((i) -> {
-            return i instanceof ItemWizardArmourSpecial && ((ItemWizardArmourSpecial)i).element == element;
+            return i instanceof ItemWizardArmorSpecial && ((ItemWizardArmorSpecial) i).element == element;
         }).count();
     }
 
@@ -287,28 +260,28 @@ public class ItemWizardArmourSpecial extends ItemArmor implements IWorkbenchItem
 
     public static boolean isWearingFullSet(EntityLivingBase entity, @Nullable Element element, @Nullable ArmourClass armourClass) {
         ItemStack helmet = entity.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
-        if (!(helmet.getItem() instanceof ItemWizardArmourSpecial)) {
+        if (!(helmet.getItem() instanceof ItemWizardArmorSpecial)) {
             return false;
         } else {
-            Element e = element == null ? ((ItemWizardArmourSpecial)helmet.getItem()).element : element;
-            ArmourClass ac = armourClass == null ? ((ItemWizardArmourSpecial)helmet.getItem()).armourClass : armourClass;
+            Element e = element == null ? ((ItemWizardArmorSpecial) helmet.getItem()).element : element;
+            ArmourClass ac = armourClass == null ? ((ItemWizardArmorSpecial) helmet.getItem()).armourClass : armourClass;
             return Arrays.stream(InventoryUtils.ARMOUR_SLOTS).allMatch((s) -> {
-                return entity.getItemStackFromSlot(s).getItem() instanceof ItemWizardArmourSpecial && ((ItemWizardArmourSpecial)entity.getItemStackFromSlot(s).getItem()).element == e && ((ItemWizardArmourSpecial)entity.getItemStackFromSlot(s).getItem()).armourClass == ac;
+                return entity.getItemStackFromSlot(s).getItem() instanceof ItemWizardArmorSpecial && ((ItemWizardArmorSpecial) entity.getItemStackFromSlot(s).getItem()).element == e && ((ItemWizardArmorSpecial) entity.getItemStackFromSlot(s).getItem()).armourClass == ac;
             });
         }
     }
 
     public static boolean doAllArmourPiecesHaveMana(EntityLivingBase entity) {
         return Arrays.stream(InventoryUtils.ARMOUR_SLOTS).noneMatch((s) -> {
-            return entity.getItemStackFromSlot(s).getItem() instanceof IManaStoringItem && ((IManaStoringItem)entity.getItemStackFromSlot(s).getItem()).isManaEmpty(entity.getItemStackFromSlot(s));
+            return entity.getItemStackFromSlot(s).getItem() instanceof IManaStoringItem && ((IManaStoringItem) entity.getItemStackFromSlot(s).getItem()).isManaEmpty(entity.getItemStackFromSlot(s));
         });
     }
 
     @SubscribeEvent
     public static void onLivingSetAttackTargetEvent(LivingSetAttackTargetEvent event) {
         if (event.getTarget() instanceof EntityPlayer && event.getEntityLiving() instanceof EntityLiving && event.getEntityLiving().isInvisible()) {
-            int armourPieces = (int)Streams.stream(event.getTarget().getArmorInventoryList()).filter((s) -> {
-                return !s.isEmpty() && !(s.getItem() instanceof ItemWizardArmourSpecial);
+            int armourPieces = (int) Streams.stream(event.getTarget().getArmorInventoryList()).filter((s) -> {
+                return !s.isEmpty() && !(s.getItem() instanceof ItemWizardArmorSpecial);
             }).count();
             if (armourPieces == 0) {
                 return;
@@ -320,32 +293,23 @@ public class ItemWizardArmourSpecial extends ItemArmor implements IWorkbenchItem
                 followRange *= 0.8;
             }
 
-            float f = (float)armourPieces / (float)((EntityPlayer)event.getTarget()).inventory.armorInventory.size();
+            float f = (float) armourPieces / (float) ((EntityPlayer) event.getTarget()).inventory.armorInventory.size();
             if (f < 0.1F) {
                 f = 0.1F;
             }
 
             followRange *= 0.7F * f;
-            if ((double)event.getTarget().getDistance(event.getEntity()) > followRange) {
-                ((EntityLiving)event.getEntityLiving()).setAttackTarget(null);
+            if ((double) event.getTarget().getDistance(event.getEntity()) > followRange) {
+                ((EntityLiving) event.getEntityLiving()).setAttackTarget(null);
             }
         }
 
     }
 
     public enum ArmourClass {
-        WIZARD(ArmorMaterial.GOLD, () -> {
-            return null;
-        }, "wizard", 0.1F, 0.0F, "hat", "robe", "leggings", "boots"),
-        SAGE(ArmorMaterial.GOLD, () -> {
-            return WizardryItems.resplendent_thread;
-        }, "sage", 0.2F, 0.0F, "hat", "robe", "leggings", "boots"),
-        BATTLEMAGE(ArmorMaterial.GOLD, () -> {
-            return WizardryItems.crystal_silver_plating;
-        }, "battlemage", 0.05F, 0.05F, "helmet", "chestplate", "leggings", "boots"),
-        WARLOCK(ArmorMaterial.GOLD, () -> {
-            return WizardryItems.ethereal_crystalweave;
-        }, "warlock", 0.1F, 0.1F, "hood", "robe", "leggings", "boots");
+        SAGE(CommonProxy.mat, () -> WizardryItems.resplendent_thread, "sage", 0.2F, 0.0F, "hat", "robe", "leggings", "boots"),
+        BATTLEMAGE(CommonProxy.mat, () -> WizardryItems.crystal_silver_plating, "battlemage", 0.05F, 0.05F, "helmet", "chestplate", "leggings", "boots"),
+        WARLOCK(CommonProxy.mat, () -> WizardryItems.ethereal_crystalweave, "warlock", 0.1F, 0.1F, "hood", "robe", "leggings", "boots");
 
         final ItemArmor.ArmorMaterial material;
         final Supplier<Item> upgradeItem;
