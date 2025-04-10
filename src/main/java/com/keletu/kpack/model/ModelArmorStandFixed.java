@@ -1,4 +1,4 @@
-package com.keletu.kpack.util;
+package com.keletu.kpack.model;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;

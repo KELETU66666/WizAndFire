@@ -1,9 +1,8 @@
 package com.keletu.kpack.proxy;
 
-import com.keletu.kpack.util.*;
+import com.keletu.kpack.model.*;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;

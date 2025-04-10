@@ -1,4 +1,4 @@
-package com.keletu.kpack.util;
+package com.keletu.kpack.model;
 
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -236,8 +236,7 @@ public class ModelFireMageArmor extends ModelArmorStandFixed {
 		ll1_r1.cubeList.add(new ModelBox(ll1_r1, 42, 17, 0.0F, -4.5F, -0.5F, 4, 9, 1, 0.0F, false));
 
 		legr = new ModelRenderer(this);
-		legr.setRotationPoint(1.9F, 4F, -2.7F);
-		
+		legr.setRotationPoint(1.9F, 4.0F, -2.7F);
 
 		Book_r1 = new ModelRenderer(this);
 		Book_r1.setRotationPoint(-5.6F, -1.0F, 2.2F);

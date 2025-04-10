@@ -1,4 +1,4 @@
-package com.keletu.kpack.util;
+package com.keletu.kpack.model;
 
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;

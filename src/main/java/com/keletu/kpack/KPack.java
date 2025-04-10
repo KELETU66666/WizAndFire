@@ -13,6 +13,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -22,6 +23,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.Objects;
 
 @Mod(
         modid = KPack.MOD_ID,
@@ -33,7 +36,8 @@ public class KPack {
 
     public static final String MOD_ID = "kpack";
     public static final String MOD_NAME = "Keletu's Pack Gears";
-    public static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.1.0";
+    public static boolean isRotnEdition;
 
     public static CreativeTabs tabKPG = new CreativeTabs("tabKeletuPackGears") {
         @SideOnly(Side.CLIENT)
@@ -48,6 +52,8 @@ public class KPack {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        isRotnEdition = Objects.equals(Loader.instance().getIndexedModList().get("iceandfire").getName(), "Ice and Fire: RotN Edition");
+
         proxy.preInit(event);
     }
 

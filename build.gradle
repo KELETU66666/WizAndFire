@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'com.wynprice.cursemaven'
 
-version = "1.0.0"
+version = "1.1.0"
 group = "com.keletu.kpack"
 archivesBaseName = "KeletuPackGears"
 
@@ -41,6 +41,7 @@ dependencies {
     deobfCompile "curse.maven:llibrary-243298:2504999"
     deobfCompile "curse.maven:electroblobs-wizardry-265642:5354477"
     deobfCompile "curse.maven:iceandfire-rlcraft-888556:6334937"
+    deobfCompile "curse.maven:ice-and-fire-rotn-edition-457668:6401349"
 }
 
 jar {
