@@ -1,7 +1,7 @@
 [
   {
-    "modid": "kgears",
-    "name": "Keletu's Pack Gears",
+    "modid": "wizandfire",
+    "name": "Wizardry and Fire",
     "description": "a mod added something related to keletu's pack",
     "version": "${version}",
     "mcversion": "${mcversion}",
