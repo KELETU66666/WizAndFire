@@ -36,7 +36,7 @@ public class WizAndFire {
 
     public static final String MOD_ID = "wizandfire";
     public static final String MOD_NAME = "Wizardry and Fire";
-    public static final String VERSION = "1.2.0";
+    public static final String VERSION = "1.3.0";
     public static boolean isRotnEdition;
 
     public static CreativeTabs tabKPG = new CreativeTabs("tabWizAndFire") {

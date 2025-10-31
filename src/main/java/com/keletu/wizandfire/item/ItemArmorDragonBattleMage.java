@@ -16,8 +16,8 @@ public class ItemArmorDragonBattleMage extends ItemWizardArmorSpecial {
     public final EntityEquipmentSlot slot;
     public final int type;
 
-    public ItemArmorDragonBattleMage(String name, ArmorMaterial material, int renderIndex, EntityEquipmentSlot slot, int type) {
-        super(material, renderIndex, slot, type == 1 ? Element.ICE : type == 2 ? Element.LIGHTNING : Element.FIRE);
+    public ItemArmorDragonBattleMage(String name, EntityEquipmentSlot slot, int type) {
+        super(ArmourClass.BATTLEMAGE, slot, type == 1 ? Element.ICE : type == 2 ? Element.LIGHTNING : Element.FIRE);
         this.slot = slot;
         this.type = type;
         setRegistryName(WizAndFire.MOD_ID, name);
