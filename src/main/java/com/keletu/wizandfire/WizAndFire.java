@@ -95,21 +95,23 @@ public class WizAndFire {
             DamageSource source = event.getSource();
             EntityLivingBase victim = event.getEntityLiving();
 
-            if (source == IceAndFire.dragonFire || source == IceAndFire.dragonIce || source == IceAndFire.dragonLightning) {
-                float multi = 1;
-                if (victim.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() instanceof ItemWizardArmorSpecial) {
-                    multi -= 0.1;
+            if (WizAndFire.isRotnEdition) {
+                if (source == IceAndFire.dragonFire || source == IceAndFire.dragonIce || source == IceAndFire.dragonLightning) {
+                    float multi = 1;
+                    if (victim.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() instanceof ItemWizardArmorSpecial) {
+                        multi -= 0.1;
+                    }
+                    if (victim.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() instanceof ItemWizardArmorSpecial) {
+                        multi -= 0.3;
+                    }
+                    if (victim.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() instanceof ItemWizardArmorSpecial) {
+                        multi -= 0.2;
+                    }
+                    if (victim.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() instanceof ItemWizardArmorSpecial) {
+                        multi -= 0.1;
+                    }
+                    event.setAmount(event.getAmount() * multi);
                 }
-                if (victim.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() instanceof ItemWizardArmorSpecial) {
-                    multi -= 0.3;
-                }
-                if (victim.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() instanceof ItemWizardArmorSpecial) {
-                    multi -= 0.2;
-                }
-                if (victim.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() instanceof ItemWizardArmorSpecial) {
-                    multi -= 0.1;
-                }
-                event.setAmount(event.getAmount() * multi);
             }
         }
     }

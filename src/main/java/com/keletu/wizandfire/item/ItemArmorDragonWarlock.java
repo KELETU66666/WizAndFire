@@ -16,8 +16,8 @@ public class ItemArmorDragonWarlock extends ItemWizardArmorSpecial {
     public final EntityEquipmentSlot slot;
     public final int type;
 
-    public ItemArmorDragonWarlock(String name, EntityEquipmentSlot slot, int type) {
-        super(ArmourClass.WARLOCK, slot, type == 1 ? Element.ICE : type == 2 ? Element.LIGHTNING : Element.FIRE);
+    public ItemArmorDragonWarlock(String name, ArmorMaterial material, int renderIndex, EntityEquipmentSlot slot, int type) {
+        super(material, renderIndex, slot, type == 1 ? Element.ICE : type == 2 ? Element.LIGHTNING : Element.FIRE);
         this.slot = slot;
         this.type = type;
         this.setCreativeTab(WizAndFire.tabKPG);

@@ -1,11 +1,10 @@
 package com.keletu.wizandfire.proxy;
 
-import com.keletu.wizandfire.WizAndFire;
 import com.keletu.wizandfire.item.ItemArmorDragonBattleMage;
-import com.keletu.wizandfire.item.ItemArmorDragonWarlock;
 import com.keletu.wizandfire.item.ItemArmorDragonSage;
-import com.keletu.wizandfire.util.IafRLCRecipes;
-import com.keletu.wizandfire.util.IafRotnRecipes;
+import com.keletu.wizandfire.item.ItemArmorDragonWarlock;
+import com.keletu.wizandfire.util.CraftingRecipes;
+import electroblob.wizardry.registry.WizardryItems;
 import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.init.SoundEvents;
@@ -25,58 +24,57 @@ public class CommonProxy {
     public static ItemArmor.ArmorMaterial mat = EnumHelper.addArmorMaterial("DragonScales_special", "", 36, new int[]{5, 7, 9, 5}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 2.0F);
 
     //Warlock
-    public static Item HelmFireWarlock = new ItemArmorDragonWarlock("warlock_fire_helmet", EntityEquipmentSlot.HEAD, 0);
-    public static Item ChestFireWarlock = new ItemArmorDragonWarlock("warlock_fire_chestplate", EntityEquipmentSlot.CHEST, 0);
-    public static Item LegsFireWarlock = new ItemArmorDragonWarlock("warlock_fire_leggings", EntityEquipmentSlot.LEGS, 0);
-    public static Item BootsFireWarlock = new ItemArmorDragonWarlock("warlock_fire_boots", EntityEquipmentSlot.FEET, 0);
-    public static Item HelmIceWarlock = new ItemArmorDragonWarlock("warlock_ice_helmet", EntityEquipmentSlot.HEAD, 1);
-    public static Item ChestIceWarlock = new ItemArmorDragonWarlock("warlock_ice_chestplate", EntityEquipmentSlot.CHEST, 1);
-    public static Item LegsIceWarlock = new ItemArmorDragonWarlock("warlock_ice_leggings", EntityEquipmentSlot.LEGS, 1);
-    public static Item BootsIceWarlock = new ItemArmorDragonWarlock("warlock_ice_boots", EntityEquipmentSlot.FEET, 1);
-    public static Item HelmLightningWarlock = new ItemArmorDragonWarlock("warlock_lightning_helmet", EntityEquipmentSlot.HEAD, 2);
-    public static Item ChestLightningWarlock = new ItemArmorDragonWarlock("warlock_lightning_chestplate", EntityEquipmentSlot.CHEST, 2);
-    public static Item LegsLightningWarlock = new ItemArmorDragonWarlock("warlock_lightning_leggings", EntityEquipmentSlot.LEGS, 2);
-    public static Item BootsLightningWarlock = new ItemArmorDragonWarlock("warlock_lightning_boots", EntityEquipmentSlot.FEET, 2);
+    public static Item HelmFireWarlock = new ItemArmorDragonWarlock("warlock_fire_helmet", WizardryItems.Materials.WARLOCK, 1, EntityEquipmentSlot.HEAD, 0);
+    public static Item ChestFireWarlock = new ItemArmorDragonWarlock("warlock_fire_chestplate", WizardryItems.Materials.WARLOCK, 1, EntityEquipmentSlot.CHEST, 0);
+    public static Item LegsFireWarlock = new ItemArmorDragonWarlock("warlock_fire_leggings", WizardryItems.Materials.WARLOCK, 1, EntityEquipmentSlot.LEGS, 0);
+    public static Item BootsFireWarlock = new ItemArmorDragonWarlock("warlock_fire_boots", WizardryItems.Materials.WARLOCK, 1, EntityEquipmentSlot.FEET, 0);
+    public static Item HelmIceWarlock = new ItemArmorDragonWarlock("warlock_ice_helmet", WizardryItems.Materials.WARLOCK, 1, EntityEquipmentSlot.HEAD, 1);
+    public static Item ChestIceWarlock = new ItemArmorDragonWarlock("warlock_ice_chestplate", WizardryItems.Materials.WARLOCK, 1, EntityEquipmentSlot.CHEST, 1);
+    public static Item LegsIceWarlock = new ItemArmorDragonWarlock("warlock_ice_leggings", WizardryItems.Materials.WARLOCK, 1, EntityEquipmentSlot.LEGS, 1);
+    public static Item BootsIceWarlock = new ItemArmorDragonWarlock("warlock_ice_boots", WizardryItems.Materials.WARLOCK, 1, EntityEquipmentSlot.FEET, 1);
+    public static Item HelmLightningWarlock = new ItemArmorDragonWarlock("warlock_lightning_helmet", WizardryItems.Materials.WARLOCK, 1, EntityEquipmentSlot.HEAD, 2);
+    public static Item ChestLightningWarlock = new ItemArmorDragonWarlock("warlock_lightning_chestplate", WizardryItems.Materials.WARLOCK, 1, EntityEquipmentSlot.CHEST, 2);
+    public static Item LegsLightningWarlock = new ItemArmorDragonWarlock("warlock_lightning_leggings", WizardryItems.Materials.WARLOCK, 1, EntityEquipmentSlot.LEGS, 2);
+    public static Item BootsLightningWarlock = new ItemArmorDragonWarlock("warlock_lightning_boots", WizardryItems.Materials.WARLOCK, 1, EntityEquipmentSlot.FEET, 2);
 
     //Sage
-    public static Item HelmFireSage = new ItemArmorDragonSage("sage_fire_helmet", EntityEquipmentSlot.HEAD, 0);
-    public static Item ChestFireSage = new ItemArmorDragonSage("sage_fire_chestplate", EntityEquipmentSlot.CHEST, 0);
-    public static Item LegsFireSage = new ItemArmorDragonSage("sage_fire_leggings", EntityEquipmentSlot.LEGS, 0);
-    public static Item BootsFireSage = new ItemArmorDragonSage("sage_fire_boots", EntityEquipmentSlot.FEET, 0);
-    public static Item HelmIceSage = new ItemArmorDragonSage("sage_ice_helmet", EntityEquipmentSlot.HEAD, 1);
-    public static Item ChestIceSage = new ItemArmorDragonSage("sage_ice_chestplate", EntityEquipmentSlot.CHEST, 1);
-    public static Item LegsIceSage = new ItemArmorDragonSage("sage_ice_leggings", EntityEquipmentSlot.LEGS, 1);
-    public static Item BootsIceSage = new ItemArmorDragonSage("sage_ice_boots", EntityEquipmentSlot.FEET, 1);
-    public static Item HelmLightningSage = new ItemArmorDragonSage("sage_lightning_helmet", EntityEquipmentSlot.HEAD, 2);
-    public static Item ChestLightningSage = new ItemArmorDragonSage("sage_lightning_chestplate", EntityEquipmentSlot.CHEST, 2);
-    public static Item LegsLightningSage = new ItemArmorDragonSage("sage_lightning_leggings", EntityEquipmentSlot.LEGS, 2);
-    public static Item BootsLightningSage = new ItemArmorDragonSage("sage_lightning_boots", EntityEquipmentSlot.FEET, 2);
+    public static Item HelmFireSage = new ItemArmorDragonSage("sage_fire_helmet", WizardryItems.Materials.SAGE, 1, EntityEquipmentSlot.HEAD, 0);
+    public static Item ChestFireSage = new ItemArmorDragonSage("sage_fire_chestplate", WizardryItems.Materials.SAGE, 1, EntityEquipmentSlot.CHEST, 0);
+    public static Item LegsFireSage = new ItemArmorDragonSage("sage_fire_leggings", WizardryItems.Materials.SAGE, 1, EntityEquipmentSlot.LEGS, 0);
+    public static Item BootsFireSage = new ItemArmorDragonSage("sage_fire_boots", WizardryItems.Materials.SAGE, 1, EntityEquipmentSlot.FEET, 0);
+    public static Item HelmIceSage = new ItemArmorDragonSage("sage_ice_helmet", WizardryItems.Materials.SAGE, 1, EntityEquipmentSlot.HEAD, 1);
+    public static Item ChestIceSage = new ItemArmorDragonSage("sage_ice_chestplate", WizardryItems.Materials.SAGE, 1, EntityEquipmentSlot.CHEST, 1);
+    public static Item LegsIceSage = new ItemArmorDragonSage("sage_ice_leggings", WizardryItems.Materials.SAGE, 1, EntityEquipmentSlot.LEGS, 1);
+    public static Item BootsIceSage = new ItemArmorDragonSage("sage_ice_boots", WizardryItems.Materials.SAGE, 1, EntityEquipmentSlot.FEET, 1);
+    public static Item HelmLightningSage = new ItemArmorDragonSage("sage_lightning_helmet", WizardryItems.Materials.SAGE, 1, EntityEquipmentSlot.HEAD, 2);
+    public static Item ChestLightningSage = new ItemArmorDragonSage("sage_lightning_chestplate", WizardryItems.Materials.SAGE, 1, EntityEquipmentSlot.CHEST, 2);
+    public static Item LegsLightningSage = new ItemArmorDragonSage("sage_lightning_leggings", WizardryItems.Materials.SAGE, 1, EntityEquipmentSlot.LEGS, 2);
+    public static Item BootsLightningSage = new ItemArmorDragonSage("sage_lightning_boots", WizardryItems.Materials.SAGE, 1, EntityEquipmentSlot.FEET, 2);
 
 
     //Battle Mage
-    public static Item HelmFireBattleMage = new ItemArmorDragonBattleMage("battlemage_fire_helmet", EntityEquipmentSlot.HEAD, 0);
-    public static Item ChestFireBattleMage = new ItemArmorDragonBattleMage("battlemage_fire_chestplate", EntityEquipmentSlot.CHEST, 0);
-    public static Item LegsFireBattleMage = new ItemArmorDragonBattleMage("battlemage_fire_leggings", EntityEquipmentSlot.LEGS, 0);
-    public static Item BootsFireBattleMage = new ItemArmorDragonBattleMage("battlemage_fire_boots", EntityEquipmentSlot.FEET, 0);
-    public static Item HelmIceBattleMage = new ItemArmorDragonBattleMage("battlemage_ice_helmet", EntityEquipmentSlot.HEAD, 1);
-    public static Item ChestIceBattleMage = new ItemArmorDragonBattleMage("battlemage_ice_chestplate", EntityEquipmentSlot.CHEST, 1);
-    public static Item LegsIceBattleMage = new ItemArmorDragonBattleMage("battlemage_ice_leggings", EntityEquipmentSlot.LEGS, 1);
-    public static Item BootsIceBattleMage = new ItemArmorDragonBattleMage("battlemage_ice_boots", EntityEquipmentSlot.FEET, 1);
-    public static Item HelmLightningBattleMage = new ItemArmorDragonBattleMage("battlemage_lightning_helmet", EntityEquipmentSlot.HEAD, 2);
-    public static Item ChestLightningBattleMage = new ItemArmorDragonBattleMage("battlemage_lightning_chestplate", EntityEquipmentSlot.CHEST, 2);
-    public static Item LegsLightningBattleMage = new ItemArmorDragonBattleMage("battlemage_lightning_leggings", EntityEquipmentSlot.LEGS, 2);
-    public static Item BootsLightningBattleMage = new ItemArmorDragonBattleMage("battlemage_lightning_boots", EntityEquipmentSlot.FEET, 2);
+    public static Item HelmFireBattleMage = new ItemArmorDragonBattleMage("battlemage_fire_helmet", WizardryItems.Materials.BATTLEMAGE, 1, EntityEquipmentSlot.HEAD, 0);
+    public static Item ChestFireBattleMage = new ItemArmorDragonBattleMage("battlemage_fire_chestplate", WizardryItems.Materials.BATTLEMAGE, 1, EntityEquipmentSlot.CHEST, 0);
+    public static Item LegsFireBattleMage = new ItemArmorDragonBattleMage("battlemage_fire_leggings", WizardryItems.Materials.BATTLEMAGE, 1, EntityEquipmentSlot.LEGS, 0);
+    public static Item BootsFireBattleMage = new ItemArmorDragonBattleMage("battlemage_fire_boots", WizardryItems.Materials.BATTLEMAGE, 1, EntityEquipmentSlot.FEET, 0);
+    public static Item HelmIceBattleMage = new ItemArmorDragonBattleMage("battlemage_ice_helmet", WizardryItems.Materials.BATTLEMAGE, 1, EntityEquipmentSlot.HEAD, 1);
+    public static Item ChestIceBattleMage = new ItemArmorDragonBattleMage("battlemage_ice_chestplate", WizardryItems.Materials.BATTLEMAGE, 1, EntityEquipmentSlot.CHEST, 1);
+    public static Item LegsIceBattleMage = new ItemArmorDragonBattleMage("battlemage_ice_leggings", WizardryItems.Materials.BATTLEMAGE, 1, EntityEquipmentSlot.LEGS, 1);
+    public static Item BootsIceBattleMage = new ItemArmorDragonBattleMage("battlemage_ice_boots", WizardryItems.Materials.BATTLEMAGE, 1, EntityEquipmentSlot.FEET, 1);
+    public static Item HelmLightningBattleMage = new ItemArmorDragonBattleMage("battlemage_lightning_helmet", WizardryItems.Materials.BATTLEMAGE, 1, EntityEquipmentSlot.HEAD, 2);
+    public static Item ChestLightningBattleMage = new ItemArmorDragonBattleMage("battlemage_lightning_chestplate", WizardryItems.Materials.BATTLEMAGE, 1, EntityEquipmentSlot.CHEST, 2);
+    public static Item LegsLightningBattleMage = new ItemArmorDragonBattleMage("battlemage_lightning_leggings", WizardryItems.Materials.BATTLEMAGE, 1, EntityEquipmentSlot.LEGS, 2);
+    public static Item BootsLightningBattleMage = new ItemArmorDragonBattleMage("battlemage_lightning_boots", WizardryItems.Materials.BATTLEMAGE, 1, EntityEquipmentSlot.FEET, 2);
 
     public void preInit(FMLPreInitializationEvent event) {
 
     }
 
     public void init(FMLInitializationEvent event) {
-
+        CraftingRecipes.init();
     }
 
     public void postInit(FMLPostInitializationEvent event) {
-
     }
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -130,12 +128,6 @@ public class CommonProxy {
         event.getRegistry().register(BootsIceBattleMage);
         event.getRegistry().register(BootsFireBattleMage);
         event.getRegistry().register(BootsLightningBattleMage);
-
-        if(WizAndFire.isRotnEdition){
-            IafRotnRecipes.registerRecipes();
-        }else{
-            IafRLCRecipes.registerRecipes();
-        }
 
     }
 
